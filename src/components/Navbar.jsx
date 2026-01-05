@@ -33,7 +33,7 @@ const Navbar = () => {
         <a className="navbar-brand d-flex align-items-center" href="#home">
           <i className="bi bi-heart-pulse-fill text-primary-custom me-2 fs-3"></i>
           <span className="fw-bold" style={{ color: 'var(--secondary-color)' }}>
-            Gaurav Sharma Numberdar
+            Gaurav Sharma Numberdarrr
           </span>
         </a>
 
