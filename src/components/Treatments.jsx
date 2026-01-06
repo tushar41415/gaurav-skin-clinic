@@ -133,11 +133,11 @@ const TreatmentCard = ({ treatment, onOpen, index }) => {
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="card-body text-center">
-        <div className="mx-auto mb-3 d-flex h-20 w-20 align-items-center justify-content-center rounded-circle redgold-gradient shadow-lg" style={{width:80,height:80}}>
+        <div className="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle redgold-gradient shadow-lg treatment-icon">
           <i className={`bi ${treatment.icon} fs-2 text-charcoal`} />
         </div>
         <h5 className="mb-2">{treatment.title}</h5>
-        <p className="text-muted small mb-3" style={{minHeight: '2.2em'}}>{treatment.description}</p>
+        <p className="text-muted small mb-3 treatment-desc">{treatment.description}</p>
         <span className="badge bg-secondary">{treatment.duration}</span>
         <div className="mt-3">
           <button
@@ -188,7 +188,7 @@ const TreatmentModal = ({ treatment }) => {
       </div>
       <div className="modal-body py-4 px-5">
         <div className="text-center">
-          <div className="mx-auto mb-4 d-flex h-24 w-24 align-items-center justify-content-center rounded-circle redgold-gradient premium-shadow" style={{width:96,height:96}}>
+          <div className="mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle redgold-gradient premium-shadow treatment-modal-icon">
             <i className={`bi ${treatment.icon} fs-1 text-charcoal`} />
           </div>
           <h3 className="mb-2">{treatment.title}</h3>
@@ -259,7 +259,7 @@ const Treatments = () => {
         </div>
 
         {/* CATEGORY FILTER (horizontal) */}
-        <div className="d-flex gap-2 overflow-auto mb-4 pb-2">
+        <div className="d-flex gap-2 overflow-auto mb-4 pb-2 category-scroll">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -284,7 +284,7 @@ const Treatments = () => {
 
         {/* MODAL (Bootstrap) - content rendered by TreatmentModal */}
         <div className="modal fade" id="treatmentModal" tabIndex="-1">
-          <div className="modal-dialog modal-dialog-centered modal-lg">
+          <div className="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
             <div className="modal-content p-0 border-0">
               <TreatmentModal treatment={selected} />
             </div>

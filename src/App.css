@@ -1,0 +1,28 @@
+/* Treatments component responsive tweaks */
+.treatment-icon { width: 80px; height: 80px; }
+.treatment-modal-icon { width: 96px; height: 96px; }
+.treatment-desc { min-height: 2.2em; }
+
+.treatment-icon, .treatment-modal-icon { display: flex; align-items: center; justify-content: center; }
+
+@media (max-width: 576px) {
+	.treatment-icon { width: 64px; height: 64px; }
+	.treatment-modal-icon { width: 72px; height: 72px; }
+	.treatment-desc { min-height: 3.6em; }
+	.card .btn { width: 100%; }
+	.modal-body { padding: 1rem !important; }
+}
+
+/* Fix category filter clipping on small devices */
+@media (max-width: 576px) {
+	/* Section used overflow-hidden; make treatments area visible on small screens */
+	#treatments { overflow: visible !important; }
+
+	/* Make the horizontal filter fully scrollable and prevent clipping */
+	.category-scroll { padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; }
+	.category-scroll > button { min-width: 110px; white-space: nowrap; flex: 0 0 auto; }
+
+	/* Slightly reduce pill vertical padding to avoid vertical overflow */
+	.category-scroll .btn { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+}
+
