@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About Us' },
-    { href: '#treatments', label: 'Treatments' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#contact', label: 'Contact' },
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About Us' },
+    { to: '/treatments', label: 'Treatments' },
+    { to: '/gallery', label: 'Gallery' },
+    { to: '/testimonials', label: 'Testimonials' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   const treatments = [
@@ -27,13 +28,8 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="col-lg-4">
             <div className="d-flex align-items-center mb-3">
-              <i
-                className="bi bi-flower1 me-2"
-                style={{ fontSize: '2rem', color: 'var(--rose-gold-light)' }}
-              ></i>
-              <h4 className="mb-0" style={{ color: 'var(--white)' }}>
-                Gaurav Sharma Numberdar
-              </h4>
+                       <img src="/vite.svg" alt="Gaurav Clinic" height="80" className="me-2" />
+
             </div>
 
             <p
@@ -42,9 +38,47 @@ const Footer = () => {
                 marginBottom: '20px',
               }}
             >
-              Your trusted partner for advanced hair and skin care treatments.
-              We are committed to helping you look and feel your best.
+              19 YEARS OF CLINICAL LEGACY
+CERTIFIED BY THE AMERICAN ACCREDITATION ASSOCIATION
+100% GROWTH PROMISE OR FREE CORRECTIONS
             </p>
+            <div className="d-flex align-items-center gap-4 mb-4">
+                <div className="text-center">
+                  <h3 className="mb-0 text-rose-gradient">15+</h3>
+                  <small style={{ color: 'var(--gray-text)' }}>
+                    Years Experience
+                  </small>
+                </div>
+
+                <div
+                  style={{
+                    width: '1px',
+                    height: '40px',
+                    background: 'var(--rose-gold-light)',
+                  }}
+                ></div>
+
+                <div className="text-center">
+                  <h3 className="mb-0 text-rose-gradient">17</h3>
+                  <small style={{ color: 'var(--gray-text)' }}>
+Clinics                  </small>
+                </div>
+
+                <div
+                  style={{
+                    width: '1px',
+                    height: '40px',
+                    background: 'var(--rose-gold-light)',
+                  }}
+                ></div>
+
+                <div className="text-center">
+                  <h3 className="mb-0 text-rose-gradient">2</h3>
+                  <small style={{ color: 'var(--gray-text)' }}>
+                    Countries
+                  </small>
+                </div>
+              </div>
 
             <div className="social-icons">
               <a href="#" aria-label="Facebook">
@@ -68,13 +102,13 @@ const Footer = () => {
             <ul className="list-unstyled">
               {quickLinks.map((link, index) => (
                 <li className="mb-2" key={index}>
-                  <a href={link.href}>
+                  <Link to={link.to} className="text-white text-decoration-none">
                     <i
                       className="bi bi-chevron-right me-1"
                       style={{ fontSize: '0.8rem' }}
                     ></i>
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,13 +120,13 @@ const Footer = () => {
             <ul className="list-unstyled">
               {treatments.map((treatment, index) => (
                 <li className="mb-2" key={index}>
-                  <a href="#treatments">
+                  <Link to="/treatments" className="text-white text-decoration-none">
                     <i
                       className="bi bi-chevron-right me-1"
                       style={{ fontSize: '0.8rem' }}
                     ></i>
                     {treatment}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -108,7 +142,9 @@ const Footer = () => {
                   style={{ color: 'var(--rose-gold-light)' }}
                 ></i>
                 <span style={{ color: 'rgba(255,255,255,0.7)' }}>
-                  123 Healthcare Plaza, Main Street, New Delhi - 110001
+                  A206 2nd floor Raj Hans plaza ahinsha Khand 1 
+                    <br />
+                    Indirapuram Ghaziabad opposite Aditya mall 201012
                 </span>
               </li>
 

@@ -158,9 +158,9 @@ const Contact = () => {
                     Clinic Address
                   </h6>
                   <p style={{ color: 'var(--gray-text)', marginBottom: 0 }}>
-                    123 Healthcare Plaza, Main Street
+                    A206 2nd floor Raj Hans plaza ahinsha Khand 1 
                     <br />
-                    New Delhi, India - 110001
+                    Indirapuram Ghaziabad opposite Aditya mall 201012
                   </p>
                 </div>
               </div>

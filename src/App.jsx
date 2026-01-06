@@ -9,20 +9,31 @@ import Gallery from './components/Gallery'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
-
   return (
     <>
-    <Navbar />
-    <Hero />
-    <About />
-    <Treatments />
-    <WhyChooseUs />
-    <Gallery  />
-    <Testimonials />
-    <Contact />
-    <Footer />
+      <Navbar />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+            </>
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/treatments" element={<Treatments />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/whychooseus" element={<WhyChooseUs />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Footer />
     </>
   )
 }
