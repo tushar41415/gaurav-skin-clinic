@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import ScrollToTop from './components/ScrollToTop'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 createRoot(document.getElementById('root')).render(

@@ -26,6 +26,67 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+
+  /* Premium Gold Colors */
+  --gold: 43 74% 49%;
+  --gold-light: 43 74% 65%;
+  --gold-dark: 43 74% 35%;
+  /* Red + Gold glitter theme */
+  --red: 352 76% 30%; /* hsl hue for deep red */
+  --red-light: 352 76% 45%;
+  --gold-glitter: 44 80% 50%;
+  --champagne: 45 30% 96%;
+  --charcoal: 30 10% 15%;
+  --charcoal-light: 30 8% 25%;
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* Dark theme variables */
+.dark {
+  --background: 30 10% 8%;
+  --foreground: 45 30% 96%;
+
+  --card: 30 10% 12%;
+  --card-foreground: 45 30% 96%;
+
+  --popover: 30 10% 10%;
+  --popover-foreground: 45 30% 96%;
+
+  --primary: 43 74% 49%;
+  --primary-foreground: 30 10% 10%;
+
+  --secondary: 30 8% 18%;
+  --secondary-foreground: 45 30% 96%;
+
+  --muted: 30 8% 18%;
+  --muted-foreground: 30 10% 55%;
+
+  --accent: 43 74% 49%;
+  --accent-foreground: 30 10% 10%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 30 8% 20%;
+  --input: 30 8% 20%;
+  --ring: 43 74% 49%;
+
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
 /* Base Styles */
@@ -301,6 +362,118 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-slide-right {
   animation: slideInRight 0.6s ease forwards;
+}
+
+/* Premium utilities */
+.gold-gradient {
+  background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.premium-shadow {
+  box-shadow: 0 10px 40px -10px hsl(var(--gold) / 0.2), 0 4px 6px -2px rgba(0,0,0,0.1);
+}
+
+.premium-glow {
+  box-shadow: 0 0 30px hsl(var(--gold) / 0.3);
+}
+
+/* Red + Gold Button & Text Styles */
+.redgold-gradient {
+  background: linear-gradient(135deg, hsl(var(--red)) 0%, hsl(var(--red-light)) 30%, hsl(var(--gold-glitter)) 100%);
+}
+
+.redgold-text {
+  background: linear-gradient(135deg, hsl(var(--red)) 0%, hsl(var(--gold-glitter)) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-redgold {
+  background: linear-gradient(90deg, hsl(var(--red)) 0%, hsl(var(--red-light)) 40%, hsl(var(--gold-glitter)) 100%);
+  border: none;
+  color: var(--white);
+  padding: 12px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 12px;
+  transition: var(--transition-normal);
+  box-shadow: 0 8px 24px rgba(183,40,40,0.12), 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-redgold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,215,0,0.08) 30%, rgba(255,255,255,0.02) 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.btn-redgold:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(220,100,50,0.22), 0 6px 18px rgba(0,0,0,0.12);
+  animation: redGoldGlow 2s ease-in-out 1;
+}
+
+@keyframes redGoldGlow {
+  0% { box-shadow: 0 6px 18px rgba(220,80,50,0.12); }
+  50% { box-shadow: 0 24px 60px rgba(255,200,80,0.32); }
+  100% { box-shadow: 0 6px 18px rgba(220,80,50,0.12); }
+}
+
+.badge-redgold {
+  background: linear-gradient(90deg, rgba(255,238,204,0.98), rgba(255,245,215,0.98));
+  color: hsl(var(--red));
+  border: 1px solid rgba(217,160,100,0.18);
+}
+
+/* Outline variant for small category buttons */
+.btn-outline-redgold {
+  background: transparent;
+  border: 1.5px solid rgba(220,80,50,0.12);
+  color: hsl(var(--red));
+  padding: 6px 14px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 999px;
+  transition: var(--transition-fast);
+}
+
+.btn-outline-redgold:hover {
+  background: linear-gradient(90deg, rgba(255,230,220,0.95), rgba(255,245,235,0.95));
+  color: #6b0b0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220,80,50,0.08);
+}
+
+.btn-outline-redgold.active,
+.btn-outline-redgold:active,
+.btn-outline-redgold[aria-pressed="true"] {
+  background: linear-gradient(90deg, hsl(var(--red)) 0%, hsl(var(--red-light)) 40%, hsl(var(--gold-glitter)) 100%);
+  color: var(--white);
+  box-shadow: 0 12px 36px rgba(255,200,80,0.12);
+}
+
+.shimmer {
+  background: linear-gradient(110deg, transparent 25%, hsl(var(--gold) / 0.1) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Lightbox Styles */
