@@ -1,138 +1,183 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const serviceCategories = [
+  {
+    category: "Hair Treatments & Transplant",
+    icon: "bi-scissors",
+    services: [
+      "Hair-loss treatment",
+      "Permanent hair loss solution",
+      "Natural hair restoration",
+      "Hair grafting",
+      "Hair reconstruction",
+      "Hair simulator",
+      "Artificial hair",
+      "Hair transplants",
+      "FUE hair transplant",
+      "ARTAS hair transplant",
+      "Scarless hair transplant",
+      "Beard hair transplant",
+      "Facial hair transplants",
+    ],
+  },
+  {
+    category: "Eyebrow & Eye Enhancements",
+    icon: "bi-eye",
+    services: [
+      "Eyebrow shaping",
+      "Eyebrow waxing",
+      "Eyebrow tinting",
+      "Eyebrow embroidery",
+      "Powder brow styling",
+      "Ombre eyebrow styling",
+      "Eyebrow transplants",
+      "Permanent eyeliner",
+      "Lash tattooing",
+      "Eyelash enhancements",
+    ],
+  },
+  {
+    category: "Skin & Dermatology",
+    icon: "bi-stars",
+    services: [
+      "Acne Treatment",
+      "Anti-Aging Treatment",
+      "Pigmentation Treatment",
+      "Melasma Treatment",
+      "Mole and warts removal",
+      "Scar Treatment",
+      "Skin Brightening Treatment",
+      "Skin Whitening Treatment",
+      "Dermatology treatment",
+      "Wrinkle Reduction",
+    ],
+  },
+  {
+    category: "Facials & Rejuvenation",
+    icon: "bi-droplet-fill",
+    services: [
+      "Hydrafacial Treatment",
+      "HydraFacial MD treatment",
+      "Carbon Laser Peel Treatment",
+      "Best Carbon Laser Facial",
+      "Deep peelings",
+      "Microdermabrasion",
+      "Dermaplaning",
+      "Skin Polishing",
+    ],
+  },
+  {
+    category: "Laser Treatments",
+    icon: "bi-lightning-charge",
+    services: [
+      "Laser hair removal",
+      "Laser Hair Reduction Treatment",
+      "Laser skin therapy",
+      "Laser Treatments for Skin Whitening",
+      "Tattoo removal",
+    ],
+  },
+  {
+    category: "Injectables & Contouring",
+    icon: "bi-heart-pulse",
+    services: [
+      "Botox treatments",
+      "Dermal fillers",
+      "Lip fillers",
+      "Skin tightening",
+      "Cool Sculpting treatments",
+      "Hair & Body Contouring",
+    ],
+  },
+  {
+    category: "Hair Removal (Men & Women)",
+    icon: "bi-x-circle",
+    services: [
+      "Permanent hair removal",
+      "Painless hair removal",
+      "Facial hair removal",
+      "Chest hair removal",
+      "Back hair removal",
+      "Lip hair removal",
+      "Arm hair removal",
+      "Foot hair removal",
+    ],
+  },
+  {
+    category: "Cosmetic & Plastic Surgery",
+    icon: "bi-hospital",
+    services: [
+      "Cosmetic plastic surgery",
+      "Reconstructive cosmetic surgery",
+      "Breast augmentation surgery",
+      "Liposuction surgery",
+      "Facelift surgery",
+    ],
+  },
+];
 
 const Treatments = () => {
-  const treatments = [
-    {
-      icon: 'bi-scissors',
-      title: 'Hair Fall Treatment',
-      description:
-        'Advanced therapies to prevent hair loss and strengthen hair follicles for healthier growth.',
-    },
-    {
-      icon: 'bi-droplet-fill',
-      title: 'PRP Therapy',
-      description:
-        'Platelet-Rich Plasma treatment for natural hair regrowth and skin rejuvenation.',
-    },
-    {
-      icon: 'bi-arrow-repeat',
-      title: 'Hair Regrowth Solutions',
-      description:
-        'Comprehensive treatments to stimulate dormant follicles and restore hair density.',
-    },
-    {
-      icon: 'bi-emoji-smile',
-      title: 'Acne & Pimple Treatment',
-      description:
-        'Effective solutions to clear acne, reduce scars, and prevent future breakouts.',
-    },
-    {
-      icon: 'bi-stars',
-      title: 'Skin Whitening & Glow',
-      description:
-        'Safe skin brightening treatments for a radiant, even-toned complexion.',
-    },
-    {
-      icon: 'bi-heart-pulse',
-      title: 'Anti-Aging Treatment',
-      description:
-        'Reduce wrinkles and fine lines with our advanced anti-aging procedures.',
-    },
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="treatments" className="section-padding bg-light position-relative overflow-hidden">
-      {/* Background Elements */}
-      <div
-        style={{
-          position: 'absolute',
-          width: '400px',
-          height: '400px',
-          background: 'rgba(154, 208, 194, 0.08)',
-          borderRadius: '50%',
-          bottom: '-100px',
-          left: '-100px',
-        }}
-      ></div>
-
-      <div className="container position-relative">
-
+    <section className="py-5 bg-light" id="services">
+      <div className="container">
         <div className="text-center mb-5">
-          <h2 className="section-title">Our Treatments</h2>
-          <p className="lead text-muted">
-            Comprehensive solutions for all your hair and skin concerns
+          <h2 className="fw-bold">Our Services</h2>
+          <p className="text-muted">
+            Advanced Hair, Skin & Aesthetic Treatments Under One Roof
           </p>
         </div>
 
-        <div className="row g-5">
-          {treatments.map((treatment, index) => (
-            <div 
-              key={index} 
-              className="col-lg-4 col-md-6"
-              style={{
-                animation: `slideInUp 0.6s ease forwards`,
-                animationDelay: `${index * 0.1}s`,
-                opacity: 0,
-              }}
-            >
-              <style>{`
-                @keyframes slideInUp {
-                  from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-              `}</style>
-              <div className="card h-100 shadow-sm hover-lift border-0">
-                <div className="card-body text-center p-5">
+        <div className="row">
+          {/* LEFT CATEGORY TABS */}
+          <div className="col-lg-4 mb-4">
+            <div className="list-group shadow-sm">
+              {serviceCategories.map((item, index) => (
+                <button
+                  key={index}
+                  className={`list-group-item list-group-item-action ${
+                    activeIndex === index ? "active" : ""
+                  }`}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <i className={`bi ${item.icon} me-2`}></i>
+                  {item.category}
+                </button>
+              ))}
+            </div>
+          </div>
 
-                  <div
-                    className="rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
-                    style={{
-                      width: '100px',
-                      height: '100px',
-                      background:
-                        'linear-gradient(135deg, var(--primary-color), var(--accent-color))',
-                      boxShadow: '0 8px 20px rgba(45, 149, 150, 0.2)',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    <i 
-                      className={`bi ${treatment.icon} fs-1 text-white`}
-                      style={{ transition: 'transform 0.3s ease' }}
-                    ></i>
-                  </div>
+          {/* RIGHT SERVICES LIST */}
+          <div className="col-lg-8">
+            <div className="card shadow-sm border-0 h-100">
+              <div className="card-body p-4">
+                <h4 className="fw-semibold mb-4">
+                  {serviceCategories[activeIndex].category}
+                </h4>
 
-                  <h4 className="card-title mb-3 fw-700">{treatment.title}</h4>
-                  <p className="card-text text-muted mb-4" style={{ lineHeight: '1.7' }}>
-                    {treatment.description}
-                  </p>
-
-                  <button 
-                    className="btn btn-outline-custom mt-3"
-                    style={{
-                      transition: 'all 0.3s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                    }}
-                  >
-                    Learn More
-                  </button>
-
+                <div className="row">
+                  {serviceCategories[activeIndex].services.map(
+                    (service, idx) => (
+                      <div key={idx} className="col-md-6 mb-3">
+                        <div className="d-flex align-items-start">
+                          <i className="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                          <span>{service}</span>
+                        </div>
+                      </div>
+                    )
+                  )}
                 </div>
+
+                <Link to="/contact" className="btn btn-rose btn-lg">
+                                  <i className="bi bi-calendar-check me-2"></i>
+                                  Book Consultation
+                                </Link>
               </div>
             </div>
-          ))}
+          </div>
         </div>
-
       </div>
     </section>
   );

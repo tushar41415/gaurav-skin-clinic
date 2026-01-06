@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -45,10 +46,10 @@ const Hero = () => {
               </p>
 
               <div className="d-flex flex-wrap gap-3">
-                <a href="#contact" className="btn btn-rose btn-lg">
+                <Link to="/contact" className="btn btn-rose btn-lg">
                   <i className="bi bi-calendar-check me-2"></i>
                   Book Appointment
-                </a>
+                </Link>
                 <a
                   href="tel:+919876543210"
                   className="btn btn-outline-rose btn-lg"
