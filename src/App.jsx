@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 import { Routes, Route } from 'react-router-dom'
 import ClinicsPreview from './components/ClinicsPreview'
 import Clinics from './components/Clinics'
-import CTASection from './components/Ctasection'
+import CTASection from './components/CTASection'
 
 function App() {
   return (
