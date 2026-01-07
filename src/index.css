@@ -871,3 +871,104 @@ img, .gallery-item img, .testimonial-card .client-avatar {
     padding: 10px 18px;
   }
 }
+
+/* Offset content for fixed navbar so pages aren't hidden behind it */
+/* Adjust values if your navbar height changes (logo/padding). */
+body {
+  padding-top: 100px; /* default navbar height + spacing */
+}
+
+@media (max-width: 576px) {
+  /* Mobile: navbar may wrap and become taller */
+  body {
+    padding-top: 140px;
+  }
+}
+
+/* Clinic card + CTA styles to match site theme */
+.clinic-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.clinic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.clinic-card .clinic-name {
+  font-weight: 700;
+  color: var(--dark-text);
+}
+.clinic-card .clinic-address {
+  color: var(--gray-text);
+  font-size: 0.95rem;
+}
+
+/* Dr. Paul's CTA button that matches rose-gold theme */
+.btn-drpauls {
+  background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-dark));
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(183,110,121,0.12);
+}
+.btn-drpauls:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* CTA theme variables and styles */
+:root {
+  --drpauls-primary: var(--rose-gold);
+  --drpauls-dark: var(--rose-gold-dark);
+}
+
+.cta-section {
+  background: linear-gradient(135deg, var(--drpauls-dark) 0%, var(--drpauls-primary) 100%);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.cta-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.cta-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+/* Outline variant for CTA phone button */
+.btn-drpauls-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+}
+.btn-drpauls-outline:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+
+
