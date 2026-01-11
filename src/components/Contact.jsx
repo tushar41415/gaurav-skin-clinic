@@ -7,10 +7,19 @@ const Contact = () => {
     message: '',
   });
 
-  // ❌ TypeScript types removed → JSX
+  // Submit handler: open WhatsApp with encoded message (frontend-only)
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you for your message! We will contact you soon.');
+
+    const { name, phone, message } = formData;
+    const recipient = '918287818299'; // country code 91 + number 8287818299
+    const text = `Name: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+    const url = `https://wa.me/${recipient}?text=${encodeURIComponent(text)}`;
+
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null;
+
+    // Reset form after opening WhatsApp
     setFormData({ name: '', phone: '', message: '' });
   };
 
