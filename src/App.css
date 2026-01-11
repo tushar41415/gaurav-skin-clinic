@@ -107,6 +107,15 @@
   border-top-right-radius: 10px;
 }
 
+@media (max-width: 576px) {
+  /* Prevent cropping on small screens: let images scale naturally */
+  .service-card img {
+    height: auto;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
 .service-card h5 {
   padding: 25px 20px 0;
   font-size: 18px;

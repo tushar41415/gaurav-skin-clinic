@@ -51,7 +51,7 @@ const Hero = () => {
                   Book Appointment
                 </Link>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918287818299"
                   className="btn btn-outline-rose btn-lg"
                 >
                   <i className="bi bi-telephone me-2"></i>

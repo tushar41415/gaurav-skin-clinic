@@ -19,7 +19,7 @@ const CTASection = () => {
                 <i className="bi bi-calendar-check me-2"></i>
                 Book Appointment
               </Link>
-              <a href="tel:1800-102-7291" className="btn btn-drpauls-outline btn-lg px-4">
+              <a href="tel:8287818299" className="btn btn-drpauls-outline btn-lg px-4">
                 <i className="bi bi-telephone-fill me-2"></i>
                 Call Now
               </a>
