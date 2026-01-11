@@ -187,9 +187,8 @@ const Contact = () => {
                     Phone Number
                   </h6>
                   <p style={{ color: 'var(--gray-text)', marginBottom: 0 }}>
-                    +91 98765 43210
-                    <br />
-                    +91 11 2345 6789
+                    +91 8287818299
+                    
                   </p>
                 </div>
               </div>

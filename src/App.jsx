@@ -10,9 +10,10 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { Routes, Route } from 'react-router-dom'
-import ClinicsPreview from './components/ClinicsPreview'
-import Clinics from './components/Clinics'
 import CTASection from './components/CTASection'
+import StatsBar from './components/StatsBar'
+import OurServices from './components/OurServices'
+import OurResults from './components/OurResults'
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
           element={
             <>
               <Hero />
-              <ClinicsPreview />
+              <StatsBar />
+              <OurServices />
+              <OurResults />
               <CTASection />
             </>
           }
@@ -36,7 +39,6 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/whychooseus" element={<WhyChooseUs />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/clinics" element={<Clinics />} />
       </Routes>
 
       <Footer />

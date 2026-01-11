@@ -1,4 +1,5 @@
 import React from 'react';
+import OurResults from './OurResults';
 
 const features = [
   {
@@ -86,6 +87,7 @@ const WhyChooseUs = () => {
           ))}
         </div>
       </div>
+      <OurResults />
     </section>
   );
 };

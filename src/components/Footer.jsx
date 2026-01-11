@@ -44,7 +44,7 @@ CERTIFIED BY THE AMERICAN ACCREDITATION ASSOCIATION
             </p>
             <div className="d-flex align-items-center gap-4 mb-4">
                 <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">15+</h3>
+                  <h3 className="mb-0 text-rose-gradient">16+</h3>
                   <small style={{ color: 'var(--gray-text)' }}>
                     Years Experience
                   </small>
@@ -59,7 +59,7 @@ CERTIFIED BY THE AMERICAN ACCREDITATION ASSOCIATION
                 ></div>
 
                 <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">17</h3>
+                  <h3 className="mb-0 text-rose-gradient">23</h3>
                   <small style={{ color: 'var(--gray-text)' }}>
 Clinics                  </small>
                 </div>
@@ -153,7 +153,7 @@ Clinics                  </small>
                   className="bi bi-telephone"
                   style={{ color: 'var(--rose-gold-light)' }}
                 ></i>
-                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="tel:+919876543210">+91 8287818299</a>
               </li>
 
               <li className="mb-3 d-flex align-items-center gap-2">
