@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const CountUp = ({ end = 0, suffix = "", duration = 900, start = true }) => {
   const [value, setValue] = useState(0);
@@ -33,9 +33,32 @@ const CountUp = ({ end = 0, suffix = "", duration = 900, start = true }) => {
 const StatsBar = () => {
   const [animate, setAnimate] = useState(false);
 
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    const t = setTimeout(() => setAnimate(true), 120);
-    return () => clearTimeout(t);
+    if (typeof window === "undefined") return;
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+      const t = setTimeout(() => setAnimate(true), 120);
+      return () => clearTimeout(t);
+    }
+
+    const obs = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimate(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    if (containerRef.current) obs.observe(containerRef.current);
+    return () => obs.disconnect();
   }, []);
 
   const items = [
@@ -46,7 +69,7 @@ const StatsBar = () => {
   ];
 
   return (
-    <div className="stats-bar">
+    <div className="stats-bar" ref={containerRef}>
       <div className="container-fluid">
         <div className="row text-white">
           {items.map((it, i) => (
