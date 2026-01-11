@@ -14,6 +14,7 @@ import CTASection from './components/CTASection'
 import StatsBar from './components/StatsBar'
 import OurServices from './components/OurServices'
 import OurResults from './components/OurResults'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }
