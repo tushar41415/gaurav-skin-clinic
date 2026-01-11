@@ -54,9 +54,28 @@
 
 /* Responsive */
 @media (max-width: 767px) {
+  .stats-bar {
+    padding: 20px 0;
+  }
+
   .stats-item {
     border-left: none !important;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .stats-item h2,
+  .stats-item h3 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .stats-item p {
+    font-size: 13px;
+    margin: 0;
+    opacity: 0.95;
   }
 }
 .our-services {
