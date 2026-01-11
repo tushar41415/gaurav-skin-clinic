@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setAnimate(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+
+  const chunks = [
+    { text: 'Advanced', cls: 'pop' },
+    { text: 'Hair & Skin', cls: 'smooth rose' },
+    { text: 'Treatments You Can Trust', cls: 'smooth' },
+  ];
+
   return (
     <section id="home" className="hero-section">
       <div className="container">
@@ -28,22 +41,21 @@ const Hero = () => {
                   lineHeight: 1.2,
                 }}
               >
-                Advanced{' '}
-                <span className="text-rose-gradient">Hair & Skin</span>{' '}
-                Treatments You Can Trust
+                {chunks.map((c, i) => (
+                  <span
+                    key={i}
+                    className={`hero-word ${c.cls} ${animate ? 'in' : ''}`}
+                    style={{
+                      animationDelay: `${i * 0.22}s`,
+                      marginRight: i < chunks.length - 1 ? '0.5rem' : 0,
+                    }}
+                  >
+                    {c.text}
+                  </span>
+                ))}
               </h1>
 
-              <p
-                className="lead mb-4"
-                style={{
-                  color: 'var(--gray-text)',
-                  fontSize: '1.2rem',
-                }}
-              >
-                Expert care by <strong>Gaurav Sharma Numberdar</strong> – Your
-                trusted specialist for transformative hair restoration and
-                radiant skin solutions.
-              </p>
+             
 
               <div className="d-flex flex-wrap gap-3">
                 <Link to="/contact" className="btn btn-rose btn-lg">
@@ -61,7 +73,7 @@ const Hero = () => {
 
               <div className="d-flex align-items-center gap-4 mt-5">
                 <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">15+</h3>
+                  <h3 className="mb-0 text-rose-gradient">16+</h3>
                   <small style={{ color: 'var(--gray-text)' }}>
                     Years Experience
                   </small>

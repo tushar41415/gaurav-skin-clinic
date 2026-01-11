@@ -78,6 +78,42 @@
     opacity: 0.95;
   }
 }
+.stats-item {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.stats-item.in {
+  animation: slideUpFade 560ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+.stats-item .stat-value {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.stats-item .stat-text {
+  font-weight: 700;
+  font-size: 30px;
+  opacity: 0.98;
+  display: inline-block;
+}
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(12px) scale(0.995); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.92); }
+  70% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.stats-item.in .stat-text { animation: popIn 420ms cubic-bezier(.2,.9,.2,1) both; }
 .our-services {
   padding: 70px 0;
   background: #ffffff;
@@ -143,6 +179,39 @@
 .results-title span {
   color: red;
 }
+
+/* Hero heading word animations */
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform-origin: center;
+}
+
+.hero-word.in.pop {
+  animation: popIn 420ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+.hero-word.in.smooth {
+  animation: smoothIn 720ms cubic-bezier(.22,.9,.28,1) forwards;
+}
+
+.hero-word.rose {
+  /* keeps the existing gradient text utility if present */
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: translateY(10px) scale(0.88); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.06); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes smoothIn {
+  0% { opacity: 0; transform: translateY(8px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Ensure animations are slightly delayed by inline `animation-delay` */
+.hero-word { animation-fill-mode: both; }
 
 .result-card {
   background: #f7f7f7;
