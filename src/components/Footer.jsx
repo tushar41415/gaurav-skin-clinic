@@ -1,84 +1,83 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About Us' },
-    { to: '/treatments', label: 'Treatments' },
-    { to: '/gallery', label: 'Gallery' },
-    { to: '/testimonials', label: 'Testimonials' },
-    { to: '/contact', label: 'Contact' },
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About Us" },
+    { to: "/treatments", label: "Treatments" },
+    { to: "/gallery", label: "Gallery" },
+    { to: "/testimonials", label: "Testimonials" },
+    { to: "/contact", label: "Contact" },
   ];
 
   const treatments = [
-    'Hair Fall Treatment',
-    'PRP Therapy',
-    'Hair Regrowth',
-    'Acne Treatment',
-    'Skin Whitening',
-    'Anti-Aging',
+    "Hair Fall Treatment",
+    "PRP Therapy",
+    "Hair Regrowth",
+    "Acne Treatment",
+    "Skin Whitening",
+    "Anti-Aging",
   ];
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="row g-4">
-
           {/* Brand Info */}
           <div className="col-lg-4">
             <div className="d-flex align-items-center mb-3">
-                       <img src="/vite.svg" alt="Gaurav Clinic" height="80" className="me-2" />
-
+              <img
+                src="/derma.png"
+                alt="Gaurav Clinic"
+                height="80"
+                className="me-2"
+              />
             </div>
 
             <p
               style={{
-                color: 'rgba(255,255,255,0.7)',
-                marginBottom: '20px',
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "20px",
               }}
             >
-              19 YEARS OF CLINICAL LEGACY
-CERTIFIED BY THE AMERICAN ACCREDITATION ASSOCIATION
-100% GROWTH PROMISE OR FREE CORRECTIONS
+              19 YEARS OF CLINICAL LEGACY CERTIFIED BY THE AMERICAN
+              ACCREDITATION ASSOCIATION 100% GROWTH PROMISE OR FREE CORRECTIONS
             </p>
             <div className="d-flex align-items-center gap-4 mb-4">
-                <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">16+</h3>
-                  <small style={{ color: 'var(--gray-text)' }}>
-                    Years Experience
-                  </small>
-                </div>
-
-                <div
-                  style={{
-                    width: '1px',
-                    height: '40px',
-                    background: 'var(--rose-gold-light)',
-                  }}
-                ></div>
-
-                <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">23</h3>
-                  <small style={{ color: 'var(--gray-text)' }}>
-Clinics                  </small>
-                </div>
-
-                <div
-                  style={{
-                    width: '1px',
-                    height: '40px',
-                    background: 'var(--rose-gold-light)',
-                  }}
-                ></div>
-
-                <div className="text-center">
-                  <h3 className="mb-0 text-rose-gradient">2</h3>
-                  <small style={{ color: 'var(--gray-text)' }}>
-                    Countries
-                  </small>
-                </div>
+              <div className="text-center">
+                <h3 className="mb-0 text-rose-gradient">16+</h3>
+                <small style={{ color: "var(--gray-text)" }}>
+                  Years Experience
+                </small>
               </div>
+
+              <div
+                style={{
+                  width: "1px",
+                  height: "40px",
+                  background: "var(--primary-light)",
+                }}
+              ></div>
+
+              <div className="text-center">
+                <h3 className="mb-0 text-rose-gradient">10K+</h3>
+                <small style={{ color: "var(--gray-text)" }}>Happy Clients </small>
+              </div>
+
+              <div
+                style={{
+                  width: "1px",
+                  height: "40px",
+                  background: "var(--primary-light)",
+                }}
+              ></div>
+
+              <div className="text-center">
+                <h3 className="mb-0 text-rose-gradient">2</h3>
+                <small style={{ color: "var(--gray-text)" }}>Countries</small>
+              </div>
+            </div>
 
             <div className="social-icons">
               <a href="#" aria-label="Facebook">
@@ -102,10 +101,13 @@ Clinics                  </small>
             <ul className="list-unstyled">
               {quickLinks.map((link, index) => (
                 <li className="mb-2" key={index}>
-                  <Link to={link.to} className="text-white text-decoration-none">
+                  <Link
+                    to={link.to}
+                    className="text-white text-decoration-none"
+                  >
                     <i
                       className="bi bi-chevron-right me-1"
-                      style={{ fontSize: '0.8rem' }}
+                      style={{ fontSize: "0.8rem" }}
                     ></i>
                     {link.label}
                   </Link>
@@ -120,10 +122,13 @@ Clinics                  </small>
             <ul className="list-unstyled">
               {treatments.map((treatment, index) => (
                 <li className="mb-2" key={index}>
-                  <Link to="/treatments" className="text-white text-decoration-none">
+                  <Link
+                    to="/treatments"
+                    className="text-white text-decoration-none"
+                  >
                     <i
                       className="bi bi-chevron-right me-1"
-                      style={{ fontSize: '0.8rem' }}
+                      style={{ fontSize: "0.8rem" }}
                     ></i>
                     {treatment}
                   </Link>
@@ -139,19 +144,19 @@ Clinics                  </small>
               <li className="mb-3 d-flex align-items-start gap-2">
                 <i
                   className="bi bi-geo-alt"
-                  style={{ color: 'var(--rose-gold-light)' }}
+                  style={{ color: "var(--primary-light)" }}
                 ></i>
-                <span style={{ color: 'rgba(255,255,255,0.7)' }}>
-                  A206 2nd floor Raj Hans plaza ahinsha Khand 1 
-                    <br />
-                    Indirapuram Ghaziabad opposite Aditya mall 201012
+                <span style={{ color: "rgba(255,255,255,0.7)" }}>
+                  A206 2nd floor Raj Hans plaza ahinsha Khand 1
+                  <br />
+                  Premier Location - Your Beauty Destination 201012
                 </span>
               </li>
 
               <li className="mb-3 d-flex align-items-center gap-2">
                 <i
                   className="bi bi-telephone"
-                  style={{ color: 'var(--rose-gold-light)' }}
+                  style={{ color: "var(--rose-gold-light)" }}
                 ></i>
                 <a href="tel:+919876543210">+91 8287818299</a>
               </li>
@@ -159,9 +164,11 @@ Clinics                  </small>
               <li className="mb-3 d-flex align-items-center gap-2">
                 <i
                   className="bi bi-envelope"
-                  style={{ color: 'var(--rose-gold-light)' }}
+                  style={{ color: "var(--rose-gold-light)" }}
                 ></i>
-                <a href="mailto:info@gsclinic.com">info@gsclinic.com</a>
+                <a href="mailto:info@drdermaclinic.com">
+                  info@drdermaclinic.com
+                </a>
               </li>
             </ul>
           </div>
@@ -169,8 +176,8 @@ Clinics                  </small>
 
         <hr
           style={{
-            borderColor: 'rgba(255,255,255,0.1)',
-            margin: '40px 0 20px',
+            borderColor: "rgba(255,255,255,0.1)",
+            margin: "40px 0 20px",
           }}
         />
 
@@ -178,7 +185,7 @@ Clinics                  </small>
           <div className="col-md-6 text-center text-md-start">
             <p
               style={{
-                color: 'rgba(255,255,255,0.5)',
+                color: "rgba(255,255,255,0.5)",
                 marginBottom: 0,
               }}
             >
@@ -190,14 +197,11 @@ Clinics                  </small>
             <a
               href="#"
               className="me-3"
-              style={{ color: 'rgba(255,255,255,0.5)' }}
+              style={{ color: "rgba(255,255,255,0.5)" }}
             >
               Privacy Policy
             </a>
-            <a
-              href="#"
-              style={{ color: 'rgba(255,255,255,0.5)' }}
-            >
+            <a href="#" style={{ color: "rgba(255,255,255,0.5)" }}>
               Terms of Service
             </a>
           </div>

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  "/result1.jpg",
-  "/result2.jpg",
-  "/result3.jpg",
-  "/result4.jpg",
-  "/result5.jpg",
-  "/result6.jpg",
-    "/result7.jpg",
-    "/result8.jpg",
-    "/result9.jpg",
-    "/result10.jpg",
-    "/result11.jpg",
-    "/result12.jpg",
+  "./images/result1.jpg",
+  "./images/result2.jpg",
+  "./images/result3.jpg",
+  "./images/result4.jpg",
+  "./images/result5.jpg",
+  "./images/result6.jpg",
+    "./images/result7.jpg",
+    "./images/result8.jpg",
+    "./images/result9.jpg",
+    "./images/result10.jpg",
+    "./images/result11.jpg",
+    "./images/result12.jpg",
     
 ];
 

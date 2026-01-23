@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,8 +10,8 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navigate = useNavigate();
@@ -19,20 +19,38 @@ const Navbar = () => {
   // navigate to route for each section
   const scrollToSection = (sectionId) => {
     setIsOpen(false);
-    if (sectionId === 'home') return navigate('/');
+    if (sectionId === "home") return navigate("/");
     return navigate(`/${sectionId}`);
   };
 
   return (
     <nav
       className={`navbar navbar-expand-lg fixed-top ${
-        scrolled ? 'navbar-light bg-white shadow-sm' : 'navbar-light bg-white'
+        scrolled
+          ? "navbar-light bg-white shadow-lg"
+          : "navbar-dark bg-transparent"
       }`}
-      style={{ transition: 'all 0.3s ease' }}
+      style={{
+        transition: "all 0.3s ease",
+        backdropFilter: scrolled ? "none" : "blur(10px)",
+        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
+      }}
     >
       <div className="container">
-        <a className="navbar-brand d-flex align-items-center" href="#home" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
-          <img src="/logo.jpg" alt="Gaurav Clinic" height="80" className="me-2" />
+        <a
+          className="navbar-brand d-flex align-items-center"
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/");
+          }}
+        >
+          <img
+            src="./images/derma.png"
+            alt="Dr Derma Hair & Skin Care Clinic"
+            height="80"
+            className="me-2"
+          />
         </a>
 
         <button
@@ -43,47 +61,68 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
+        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('home')}>
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("home")}
+              >
                 Home
               </button>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('about')}>
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("about")}
+              >
                 About
               </button>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('treatments')}>
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("treatments")}
+              >
                 Treatments
               </button>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('gallery')}>
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("gallery")}
+              >
                 Gallery
               </button>
             </li>
-            <li className="nav-item"> 
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('whychooseus')}>
+            <li className="nav-item">
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("whychooseus")}
+              >
                 Why Choose Us
               </button>
             </li>
-            <li className='nav-item'>
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('testimonials')}>
+            <li className="nav-item">
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("testimonials")}
+              >
                 Testimonials
               </button>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => scrollToSection('contact')}>
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => scrollToSection("contact")}
+              >
                 Contact
               </button>
             </li>
             <li className="nav-item ms-lg-2">
               <button
-                className="btn btn-primary-custom btn-sm"
-                onClick={() => scrollToSection('contact')}
+                className={`btn ${scrolled ? "btn-primary" : "btn-light"} btn-sm`}
+                onClick={() => scrollToSection("contact")}
               >
                 Book Appointment
               </button>
