@@ -4,7 +4,8 @@ const features = [
   {
     icon: "bi-person-check",
     title: "Senior Expertise",
-    description: "Skilled specialists focused on advanced hair and skin procedures.",
+    description:
+      "15 years of experience with skilled specialists focused on advanced hair and skin procedures.",
   },
   {
     icon: "bi-clipboard2-pulse",
@@ -39,10 +40,13 @@ const WhyChooseUs = () => {
       <div className="container">
         <div className="text-center mb-4 mb-lg-5">
           <span className="section-badge">Why Choose Us</span>
-          <h2 className="section-title">Built for trust, designed for results</h2>
+          <h2 className="section-title">
+            Built for trust, designed for results
+          </h2>
           <p className="section-subtitle mx-auto" style={{ maxWidth: "700px" }}>
-            We combine clinical discipline with personalized care so your treatment feels comfortable,
-            structured, and genuinely result-oriented.
+            We combine clinical discipline with personalized care so your
+            treatment feels comfortable, structured, and genuinely
+            result-oriented.
           </p>
         </div>
 

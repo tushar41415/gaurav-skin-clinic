@@ -29,8 +29,8 @@ const Footer = () => {
               style={{ height: "74px", width: "auto" }}
             />
             <p className="mt-3 mb-3" style={{ maxWidth: "340px" }}>
-              Premium skin and hair treatments with modern technology,
-              personalized diagnosis, and result-driven care.
+              Premium skin and hair treatments with 15 years of experience,
+              modern technology, personalized diagnosis, and result-driven care.
             </p>
             <div className="social-icons">
               <a href="#" aria-label="Facebook">

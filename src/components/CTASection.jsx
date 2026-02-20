@@ -16,17 +16,19 @@ const CTASection = () => {
             <div className="col-lg-8">
               <h2 className="cta-title">Reserve Your Premium Consultation</h2>
               <p className="cta-text">
-                Let our experts curate a luxury treatment roadmap tailored to your hair
-                and skin goals.
+                Let our experts with 15 years of experience curate a luxury
+                treatment roadmap tailored to your hair and skin goals.
               </p>
             </div>
             <div className="col-lg-4">
               <div className="d-flex flex-wrap justify-content-lg-end gap-2">
                 <Link to="/contact" className="btn-brand">
-                  <i className="bi bi-calendar2-plus" />Book Appointment
+                  <i className="bi bi-calendar2-plus" />
+                  Book Appointment
                 </Link>
                 <a href="tel:+919217117898" className="btn-brand-outline">
-                  <i className="bi bi-telephone-fill" />Call Clinic
+                  <i className="bi bi-telephone-fill" />
+                  Call Clinic
                 </a>
               </div>
             </div>

@@ -1,8 +1,11 @@
 import { motion as Motion } from "framer-motion";
 
 const highlights = [
-  { title: "Expert Team", text: "Skilled and patient-focused specialists" },
-  { title: "10K+ Clients", text: "Hair and skin consultations" },
+  {
+    title: "Expert Team",
+    text: "15 years of staff experience with skilled and patient-focused specialists",
+  },
+  { title: "Gaining number of Clients", text: "Hair and skin consultations" },
   { title: "Modern Setup", text: "US-FDA approved equipment" },
   { title: "Personal Plans", text: "Based on scalp/skin analysis" },
 ];
@@ -14,10 +17,13 @@ const About = () => {
         <div className="page-hero mb-4 mb-lg-5">
           <div className="hero-card">
             <span className="section-badge">About Clinic</span>
-            <h1 className="section-title">Meet the team behind your visible transformation</h1>
+            <h1 className="section-title">
+              Meet the team behind your visible transformation
+            </h1>
             <p className="section-subtitle mb-0">
-              We blend dermatology science, aesthetic precision, and friendly care so every treatment
-              delivers confidence, not just temporary results.
+              We blend dermatology science, aesthetic precision, and friendly
+              care so every treatment delivers confidence, not just temporary
+              results.
             </p>
           </div>
         </div>
@@ -43,16 +49,21 @@ const About = () => {
               transition={{ duration: 0.55 }}
             >
               <h2 className="section-title mb-3">
-                Trusted expertise in <span className="text-gradient">hair restoration & skin rejuvenation</span>
+                Trusted expertise in{" "}
+                <span className="text-gradient">
+                  hair restoration & skin rejuvenation
+                </span>
               </h2>
               <p className="section-lead">
-                Dr Derma Hair and Skin Clinic is known for clinical transparency and custom treatment strategies.
-                Every patient gets a detailed diagnosis, realistic treatment timeline, and after-care
+                Dr Derma Hair and Skin Clinic is known for clinical transparency
+                and custom treatment strategies. Every patient gets a detailed
+                diagnosis, realistic treatment timeline, and after-care
                 monitoring to ensure consistent progress.
               </p>
               <p className="section-lead mb-0">
-                From PRP and anti-hair fall protocols to laser, medi-facials, and pigmentation solutions,
-                our focus stays on safe procedures and measurable outcomes.
+                From PRP and anti-hair fall protocols to laser, medi-facials,
+                and pigmentation solutions, our focus stays on safe procedures
+                and measurable outcomes.
               </p>
 
               <div className="about-highlight">

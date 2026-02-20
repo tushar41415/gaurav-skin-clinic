@@ -7,13 +7,12 @@ const images = [
   "./images/result4.jpg",
   "./images/result5.jpg",
   "./images/result6.jpg",
-    "./images/result7.jpg",
-    "./images/result8.jpg",
-    "./images/result9.jpg",
-    "./images/result10.jpg",
-    "./images/result11.jpg",
-    "./images/result12.jpg",
-    
+  "./images/result7.jpg",
+  "./images/result8.jpg",
+  "./images/result9.jpg",
+  "./images/result10.jpg",
+  "./images/result11.jpg",
+  "./images/result12.jpg",
 ];
 
 const overlayStyle = {
@@ -63,10 +62,20 @@ const OurResults = () => {
   return (
     <section className="our-results">
       <div className="container">
-
         <h2 className="results-title">
           Our <span>Results</span>
         </h2>
+        <p
+          className="section-subtitle mx-auto"
+          style={{
+            maxWidth: "700px",
+            textAlign: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          See the transformations achieved through our 15 years of expertise in
+          hair and skin care.
+        </p>
 
         <div className="row">
           {images.map((src, index) => (
@@ -108,7 +117,6 @@ const OurResults = () => {
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

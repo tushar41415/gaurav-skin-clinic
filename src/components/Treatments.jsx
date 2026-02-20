@@ -8,11 +8,14 @@ const Treatments = () => {
           <div className="hero-card">
             <span className="section-badge">All Treatments</span>
             <h1 className="section-title">
-              Complete Treatment Portfolio for <span className="text-gradient">Hair, Skin & Aesthetics</span>
+              Complete Treatment Portfolio for{" "}
+              <span className="text-gradient">Hair, Skin & Aesthetics</span>
             </h1>
             <p className="section-subtitle mb-0">
-              Explore our most requested procedures including anti-hair fall programs, PRP,
-              laser care, facials, anti-ageing protocols and advanced skin correction treatments.
+              Explore our most requested procedures backed by 15 years of
+              experience, including anti-hair fall programs, PRP, laser care,
+              facials, anti-ageing protocols and advanced skin correction
+              treatments.
             </p>
           </div>
         </div>

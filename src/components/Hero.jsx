@@ -110,7 +110,7 @@ const Hero = () => {
               <div className="hero-points">
                 <div className="hero-point">
                   <strong>Expert Team</strong>
-                  <span>Premium clinical care</span>
+                  <span>15 years of experience in premium clinical care</span>
                 </div>
                 <div className="hero-point">
                   <strong>Gaining numbers of </strong>

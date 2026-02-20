@@ -88,13 +88,20 @@ const StatsBar = () => {
               <h3 className="mb-3">Why people keep choosing Dr Derma</h3>
               <ul className="trust-list">
                 <li>
-                  <i className="bi bi-check2-circle" /> Treatment plans tailored to your hair and skin profile.
+                  <i className="bi bi-check2-circle" /> 15 years of experience
+                  in hair and skin treatments.
                 </li>
                 <li>
-                  <i className="bi bi-check2-circle" /> International standard hygiene and modern equipment.
+                  <i className="bi bi-check2-circle" /> Treatment plans tailored
+                  to your hair and skin profile.
                 </li>
                 <li>
-                  <i className="bi bi-check2-circle" /> Continuous after-care support for better outcomes.
+                  <i className="bi bi-check2-circle" /> International standard
+                  hygiene and modern equipment.
+                </li>
+                <li>
+                  <i className="bi bi-check2-circle" /> Continuous after-care
+                  support for better outcomes.
                 </li>
               </ul>
             </div>

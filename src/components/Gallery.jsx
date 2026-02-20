@@ -2,18 +2,46 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 
 const galleryImages = [
-  { src: "/images/result1.jpg", alt: "Hair treatment result 1", category: "Hair" },
-  { src: "/images/result2.jpg", alt: "Hair treatment result 2", category: "Hair" },
-  { src: "/images/result3.jpg", alt: "Skin treatment result 1", category: "Skin" },
-  { src: "/images/result4.jpg", alt: "Skin treatment result 2", category: "Skin" },
-  { src: "/images/result5.jpg", alt: "Hair treatment result 3", category: "Hair" },
+  {
+    src: "/images/result1.jpg",
+    alt: "Hair treatment result 1",
+    category: "Hair",
+  },
+  {
+    src: "/images/result2.jpg",
+    alt: "Hair treatment result 2",
+    category: "Hair",
+  },
+  {
+    src: "/images/result3.jpg",
+    alt: "Skin treatment result 1",
+    category: "Skin",
+  },
+  {
+    src: "/images/result4.jpg",
+    alt: "Skin treatment result 2",
+    category: "Skin",
+  },
+  {
+    src: "/images/result5.jpg",
+    alt: "Hair treatment result 3",
+    category: "Hair",
+  },
   { src: "/images/result6.jpg", alt: "Skin glow result", category: "Skin" },
   { src: "/images/result7.jpg", alt: "Hair regrowth result", category: "Hair" },
   { src: "/images/result8.jpg", alt: "Pigmentation result", category: "Skin" },
   { src: "/images/result9.jpg", alt: "Hairline recovery", category: "Hair" },
   { src: "/images/result10.jpg", alt: "Laser care result", category: "Skin" },
-  { src: "/images/result11.jpg", alt: "Hair treatment result 4", category: "Hair" },
-  { src: "/images/result12.jpg", alt: "Skin correction result", category: "Skin" },
+  {
+    src: "/images/result11.jpg",
+    alt: "Hair treatment result 4",
+    category: "Hair",
+  },
+  {
+    src: "/images/result12.jpg",
+    alt: "Skin correction result",
+    category: "Skin",
+  },
 ];
 
 const filters = ["All", "Hair", "Skin"];
@@ -62,10 +90,12 @@ const Gallery = () => {
           <div className="hero-card">
             <span className="section-badge">Real Results</span>
             <h1 className="section-title">
-              Before & After <span className="text-gradient">Transformation Gallery</span>
+              Before & After{" "}
+              <span className="text-gradient">Transformation Gallery</span>
             </h1>
             <p className="section-subtitle mb-0">
-              Genuine treatment outcomes from our clinic. Tap any image to view full size.
+              Genuine treatment outcomes from our clinic with 15 years of
+              experience. Tap any image to view full size.
             </p>
           </div>
         </div>
@@ -123,7 +153,10 @@ const Gallery = () => {
               transition={{ duration: 0.2 }}
               onClick={(event) => event.stopPropagation()}
             >
-              <button className="lightbox-close" onClick={() => setCurrentIndex(null)}>
+              <button
+                className="lightbox-close"
+                onClick={() => setCurrentIndex(null)}
+              >
                 <i className="bi bi-x-lg" />
               </button>
               <button className="lightbox-control left" onClick={handlePrev}>
