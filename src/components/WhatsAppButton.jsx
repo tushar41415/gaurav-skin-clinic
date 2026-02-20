@@ -1,4 +1,4 @@
-const WhatsAppButton = ({ phone = "918287118299", message }) => {
+const WhatsAppButton = ({ phone = "919217117898", message }) => {
   const text = message
     ? encodeURIComponent(message)
     : encodeURIComponent("Hi! I want consultation for hair/skin treatment.");

@@ -23,10 +23,14 @@ const Footer = () => {
       <div className="container">
         <div className="row g-4">
           <div className="col-lg-4">
-            <img src="/images/newLogo.png" alt="Dr Derma" style={{ height: "74px", width: "auto" }} />
+            <img
+              src="/images/newLogo.png"
+              alt="Dr Derma"
+              style={{ height: "74px", width: "auto" }}
+            />
             <p className="mt-3 mb-3" style={{ maxWidth: "340px" }}>
-              Premium skin and hair treatments with modern technology, personalized diagnosis,
-              and result-driven care.
+              Premium skin and hair treatments with modern technology,
+              personalized diagnosis, and result-driven care.
             </p>
             <div className="social-icons">
               <a href="#" aria-label="Facebook">
@@ -38,7 +42,7 @@ const Footer = () => {
               <a href="#" aria-label="YouTube">
                 <i className="bi bi-youtube" />
               </a>
-              <a href="https://wa.me/918287118299" aria-label="WhatsApp">
+              <a href="https://wa.me/919217117898" aria-label="WhatsApp">
                 <i className="bi bi-whatsapp" />
               </a>
             </div>
@@ -69,23 +73,36 @@ const Footer = () => {
           <div className="col-md-4 col-lg-3">
             <h5>Contact</h5>
             <div className="d-grid gap-2">
-              <a href="tel:+918287118299">
-                <i className="bi bi-telephone me-2" />+91 8287118299
+              <a href="tel:+919217117898">
+                <i className="bi bi-telephone me-2" />
+                +91 9217117898
               </a>
               <a href="mailto:drderma.in@gmail.com">
-                <i className="bi bi-envelope me-2" />drderma.in@gmail.com
+                <i className="bi bi-envelope me-2" />
+                drderma.in@gmail.com
               </a>
               <span>
-                <i className="bi bi-geo-alt me-2" />A-206, 2nd Floor, Rajhans Plaza,
-                Ahinsa Khand 1, Indirapuram, Ghaziabad
+                <i className="bi bi-geo-alt me-2" />
+                A-206, 2nd Floor, Rajhans Plaza, Ahinsa Khand 1, Indirapuram,
+                Ghaziabad
               </span>
             </div>
           </div>
         </div>
 
-        <hr style={{ borderColor: "rgba(255,255,255,0.14)", margin: "2rem 0 1rem" }} />
-        <div className="d-flex flex-wrap justify-content-between gap-2" style={{ fontSize: "0.92rem" }}>
-          <span>© 2026 Dr Derma Hair & Skin Care Clinic. All rights reserved.</span>
+        <hr
+          style={{
+            borderColor: "rgba(255,255,255,0.14)",
+            margin: "2rem 0 1rem",
+          }}
+        />
+        <div
+          className="d-flex flex-wrap justify-content-between gap-2"
+          style={{ fontSize: "0.92rem" }}
+        >
+          <span>
+            © 2026 Dr Derma Hair & Skin Care Clinic. All rights reserved.
+          </span>
           <div className="d-flex gap-3">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

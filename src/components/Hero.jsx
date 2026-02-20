@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { motion as Motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion as Motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 
 const fadeUp = {
@@ -21,7 +26,11 @@ const Hero = () => {
   });
 
   const contentY = useTransform(smoothProgress, [0, 1], [0, 165]);
-  const contentOpacity = useTransform(smoothProgress, [0, 0.7, 1], [1, 0.92, 0.58]);
+  const contentOpacity = useTransform(
+    smoothProgress,
+    [0, 0.7, 1],
+    [1, 0.92, 0.58],
+  );
   const visualY = useTransform(smoothProgress, [0, 1], [0, 210]);
   const videoScale = useTransform(smoothProgress, [0, 1], [1, 1.15]);
   const videoOverlayOpacity = useTransform(smoothProgress, [0, 1], [0.45, 0.7]);
@@ -51,7 +60,10 @@ const Hero = () => {
             type="video/mp4"
           />
         </Motion.video>
-        <Motion.span className="hero-video-vignette" style={{ opacity: videoOverlayOpacity }} />
+        <Motion.span
+          className="hero-video-vignette"
+          style={{ opacity: videoOverlayOpacity }}
+        />
         <span className="hero-film-grain" />
       </div>
 
@@ -70,24 +82,28 @@ const Hero = () => {
               style={{ y: contentY, opacity: contentOpacity }}
             >
               <div className="hero-eyebrow">
-                <i className="bi bi-patch-check-fill" /> Signature Luxury Hair & Skin Care
+                <i className="bi bi-patch-check-fill" /> Signature Luxury Hair &
+                Skin Care
               </div>
 
               <h1 className="hero-title">
-                Experience <span className="text-gradient">Luxury Dermatology</span> Crafted for Confident Results
+                Experience{" "}
+                <span className="text-gradient">Luxury Dermatology</span>{" "}
+                Crafted for Confident Results
               </h1>
 
               <p className="hero-copy">
-                Dr Derma Clinic delivers premium hair restoration and skin rejuvenation
-                protocols with bespoke consultation, advanced technology, and elegant patient care.
+                Dr Derma Hair and Skin Clinic delivers premium hair restoration
+                and skin rejuvenation protocols with bespoke consultation,
+                advanced technology, and elegant patient care.
               </p>
 
               <div className="hero-cta">
                 <Link to="/contact" className="btn-brand">
                   <i className="bi bi-calendar2-check" /> Book Consultation
                 </Link>
-                <a href="tel:+918287118299" className="btn-brand-outline">
-                  <i className="bi bi-telephone-fill" /> Call +91 8287118299
+                <a href="tel:+919217117898" className="btn-brand-outline">
+                  <i className="bi bi-telephone-fill" /> Call +91 9217117898
                 </a>
               </div>
 
@@ -97,11 +113,11 @@ const Hero = () => {
                   <span>Premium clinical care</span>
                 </div>
                 <div className="hero-point">
-                  <strong>10K+</strong>
-                  <span>Satisfied transformations</span>
+                  <strong>Gaining numbers of </strong>
+                  <span>Satisfied Clients</span>
                 </div>
                 <div className="hero-point">
-                  <strong>FDA Tools</strong>
+                  <strong>USFDA approved Machines</strong>
                   <span>Global standard technology</span>
                 </div>
               </div>
@@ -117,7 +133,10 @@ const Hero = () => {
               style={{ y: visualY }}
             >
               <div className="hero-image-main">
-                <img src="/images/Reception1.png" alt="Dr Derma clinic reception area" />
+                <img
+                  src="/images/Reception1.png"
+                  alt="Dr Derma clinic reception area"
+                />
               </div>
 
               <Motion.div

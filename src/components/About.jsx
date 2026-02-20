@@ -46,7 +46,7 @@ const About = () => {
                 Trusted expertise in <span className="text-gradient">hair restoration & skin rejuvenation</span>
               </h2>
               <p className="section-lead">
-                Dr Derma Clinic is known for clinical transparency and custom treatment strategies.
+                Dr Derma Hair and Skin Clinic is known for clinical transparency and custom treatment strategies.
                 Every patient gets a detailed diagnosis, realistic treatment timeline, and after-care
                 monitoring to ensure consistent progress.
               </p>

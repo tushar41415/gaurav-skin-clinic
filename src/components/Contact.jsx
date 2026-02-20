@@ -13,7 +13,7 @@ const Contact = () => {
 
     const { name, phone, message } = formData;
     const text = `Name: ${name}\nPhone: ${phone}\nConcern: ${message}`;
-    const whatsappUrl = `https://wa.me/918287118299?text=${encodeURIComponent(text)}`;
+    const whatsappUrl = `https://wa.me/919217117898?text=${encodeURIComponent(text)}`;
 
     const popup = window.open(whatsappUrl, "_blank");
     if (popup) popup.opener = null;
@@ -125,7 +125,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <strong>Phone</strong>
-                  <p className="mb-0 text-muted">+91 8287118299</p>
+                  <p className="mb-0 text-muted">+91 9217117898</p>
                 </div>
               </div>
 
