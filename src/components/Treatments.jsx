@@ -1,24 +1,23 @@
-
-import { Modal } from "bootstrap";
 import OurServices from "./OurServices";
 
-
-
-
-
 const Treatments = () => {
-
-
   return (
-    <section id="treatments" className="section-padding bg-light position-relative overflow-hidden">
+    <section id="treatments" className="section-padding">
       <div className="container">
-        {/* HERO */}
-        <div className="text-center mb-5">
-          <h1 className="fw-bold">Our <span className="text-warning">Treatments</span></h1>
-          <p className="text-muted">Discover premium hair & skin care solutions</p>
+        <div className="page-hero mb-4">
+          <div className="hero-card">
+            <span className="section-badge">All Treatments</span>
+            <h1 className="section-title">
+              Complete Treatment Portfolio for <span className="text-gradient">Hair, Skin & Aesthetics</span>
+            </h1>
+            <p className="section-subtitle mb-0">
+              Explore our most requested procedures including anti-hair fall programs, PRP,
+              laser care, facials, anti-ageing protocols and advanced skin correction treatments.
+            </p>
+          </div>
         </div>
 
-        <OurServices />
+        <OurServices limit={null} showHeader={false} />
       </div>
     </section>
   );

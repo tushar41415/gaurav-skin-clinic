@@ -1,32 +1,38 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
 
 const CTASection = () => {
   return (
     <section className="cta-section">
-      <Container>
-        <Row className="align-items-center">
-          <Col lg={8} className="mb-4 mb-lg-0">
-            <h2 className="cta-title mb-3">Ready to Transform Your Look?</h2>
-            <p className="cta-text mb-0">
-              Book a free consultation with our expert dermatologists today. 
-              Take the first step towards a more confident you!
-            </p>
-          </Col>
-          <Col lg={4} className="text-lg-end">
-            <div className="d-flex gap-3 justify-content-lg-end flex-wrap">
-              <Link to="/contact" className="btn btn-light btn-lg px-4 rounded-pill">
-                <i className="bi bi-calendar-check me-2"></i>
-                Book Appointment
-              </Link>
-              <a href="tel:8287818299" className="btn btn-drpauls-outline btn-lg px-4">
-                <i className="bi bi-telephone-fill me-2"></i>
-                Call Now
-              </a>
+      <div className="container">
+        <Motion.div
+          className="cta-shell"
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="row align-items-center g-3">
+            <div className="col-lg-8">
+              <h2 className="cta-title">Reserve Your Premium Consultation</h2>
+              <p className="cta-text">
+                Let our experts curate a luxury treatment roadmap tailored to your hair
+                and skin goals.
+              </p>
             </div>
-          </Col>
-        </Row>
-      </Container>
+            <div className="col-lg-4">
+              <div className="d-flex flex-wrap justify-content-lg-end gap-2">
+                <Link to="/contact" className="btn-brand">
+                  <i className="bi bi-calendar2-plus" />Book Appointment
+                </Link>
+                <a href="tel:+918287118299" className="btn-brand-outline">
+                  <i className="bi bi-telephone-fill" />Call Clinic
+                </a>
+              </div>
+            </div>
+          </div>
+        </Motion.div>
+      </div>
     </section>
   );
 };

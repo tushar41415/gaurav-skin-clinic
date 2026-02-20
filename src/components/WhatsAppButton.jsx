@@ -1,22 +1,18 @@
-import React from 'react';
-
-const WhatsAppButton = ({ phone = '918287818299', message }) => {
+const WhatsAppButton = ({ phone = "918287118299", message }) => {
   const text = message
     ? encodeURIComponent(message)
-    : encodeURIComponent('Hello! I would like to know more about your services.');
-
-  const href = `https://wa.me/${phone}?text=${text}`;
+    : encodeURIComponent("Hi! I want consultation for hair/skin treatment.");
 
   return (
     <a
-      href={href}
+      href={`https://wa.me/${phone}?text=${text}`}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-fab"
       aria-label="Chat on WhatsApp"
       title="Chat on WhatsApp"
     >
-      <i className="bi bi-whatsapp" aria-hidden="true"></i>
+      <i className="bi bi-whatsapp" aria-hidden="true" />
     </a>
   );
 };

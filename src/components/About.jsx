@@ -1,128 +1,69 @@
-import React from "react";
+import { motion as Motion } from "framer-motion";
+
+const highlights = [
+  { title: "Expert Team", text: "Skilled and patient-focused specialists" },
+  { title: "10K+ Clients", text: "Hair and skin consultations" },
+  { title: "Modern Setup", text: "US-FDA approved equipment" },
+  { title: "Personal Plans", text: "Based on scalp/skin analysis" },
+];
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="section-padding"
-      style={{ background: "var(--soft-bg)" }}
-    >
+    <section id="about" className="section-padding">
       <div className="container">
-        <div className="row align-items-center g-5">
-          {/* Image Section */}
-          <div className="col-lg-6">
-            <div className="position-relative">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600"
-                alt="Dr Derma Hair & Skin Care Clinic"
-                className="img-fluid rounded-4 shadow-lg"
-                style={{ border: "5px solid var(--white)" }}
-              />
+        <div className="page-hero mb-4 mb-lg-5">
+          <div className="hero-card">
+            <span className="section-badge">About Clinic</span>
+            <h1 className="section-title">Meet the team behind your visible transformation</h1>
+            <p className="section-subtitle mb-0">
+              We blend dermatology science, aesthetic precision, and friendly care so every treatment
+              delivers confidence, not just temporary results.
+            </p>
+          </div>
+        </div>
 
-              <div
-                className="position-absolute bottom-0 start-0 translate-middle-y p-4 rounded-4"
-                style={{
-                  background: "var(--white)",
-                  boxShadow: "var(--shadow-md)",
-                  marginLeft: "-20px",
-                }}
-              >
-                <div className="d-flex align-items-center gap-3">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center"
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      background: "var(--gradient-primary)",
-                    }}
-                  >
-                    <i
-                      className="bi bi-award text-white"
-                      style={{ fontSize: "1.5rem" }}
-                    ></i>
-                  </div>
-                  <div>
-                    <h5
-                      className="mb-0"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      Certified Expert
-                    </h5>
-                    <small style={{ color: "var(--gray-text)" }}>
-                      Hair & Skin Specialist
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="row g-4 align-items-center">
+          <div className="col-lg-5">
+            <Motion.div
+              className="about-image"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6 }}
+            >
+              <img src="/images/Reception1.png" alt="Dr Derma specialist" />
+            </Motion.div>
           </div>
 
-          {/* Content Section */}
-          <div className="col-lg-6">
-            <span
-              className="badge mb-3 px-3 py-2"
-              style={{
-                background: "rgba(183, 110, 121, 0.1)",
-                color: "var(--rose-gold)",
-                fontFamily: "var(--font-heading)",
-              }}
+          <div className="col-lg-7">
+            <Motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55 }}
             >
-              About Us
-            </span>
+              <h2 className="section-title mb-3">
+                Trusted expertise in <span className="text-gradient">hair restoration & skin rejuvenation</span>
+              </h2>
+              <p className="section-lead">
+                Dr Derma Clinic is known for clinical transparency and custom treatment strategies.
+                Every patient gets a detailed diagnosis, realistic treatment timeline, and after-care
+                monitoring to ensure consistent progress.
+              </p>
+              <p className="section-lead mb-0">
+                From PRP and anti-hair fall protocols to laser, medi-facials, and pigmentation solutions,
+                our focus stays on safe procedures and measurable outcomes.
+              </p>
 
-            <h2
-              className="section-title text-start mb-4"
-              style={{ marginTop: 0 }}
-            >
-              Meet{" "}
-              <span className="text-rose-gradient">
-                Gaurav Sharma Numberdar
-              </span>
-            </h2>
-
-            <p style={{ color: "var(--gray-text)", lineHeight: 1.8 }}>
-              With over 15 years of dedicated experience in hair restoration and
-              skin care, Gaurav Sharma Numberdar has established himself as a
-              trusted name in the field of aesthetic medicine. His
-              patient-centric approach combines cutting-edge technology with
-              personalized treatment plans.
-            </p>
-
-            <p style={{ color: "var(--gray-text)", lineHeight: 1.8 }}>
-              Our clinic is committed to delivering exceptional results through
-              advanced procedures like PRP therapy, laser treatments, and
-              customized skincare regimens. Every patient receives
-              individualized attention and care.
-            </p>
-
-            <div className="row g-4 mt-4">
-              {[
-                "Board Certified",
-                "Advanced Training",
-                "Latest Technology",
-                "Patient-First Care",
-              ].map((item, index) => (
-                <div key={index} className="col-6">
-                  <div className="d-flex align-items-center gap-3">
-                    <i
-                      className="bi bi-check-circle-fill"
-                      style={{
-                        color: "var(--rose-gold)",
-                        fontSize: "1.5rem",
-                      }}
-                    ></i>
-                    <span style={{ fontFamily: "var(--font-heading)" }}>
-                      {item}
-                    </span>
+              <div className="about-highlight">
+                {highlights.map((item) => (
+                  <div className="about-chip" key={item.title}>
+                    <strong>{item.title}</strong>
+                    <span>{item.text}</span>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <a href="#contact" className="btn btn-rose mt-4">
-              <i className="bi bi-calendar2-heart me-2"></i>
-              Schedule Consultation
-            </a>
+                ))}
+              </div>
+            </Motion.div>
           </div>
         </div>
       </div>

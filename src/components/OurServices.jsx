@@ -1,178 +1,76 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
 
 const services = [
-  {
-    title: "Hair Thinning & Anti Dandruff Treatment",
-    img: "/images/Hair.jpeg",
-  },
-  {
-    title: "Hair Fast Treatment & Hair Scalp Therapy",
-    img: "/images/Hairfast.png",
-  },
-  {
-    title: "Advanced Hair Regrowth Treatment",
-    img: "/images/Hairgrowth.jpg",
-  },
-  {
-    title: "Alopecia Areata Treatment",
-    img: "/images/Areata.jpg",
-  },
-  {
-    title: "Female Pattern Hair Loss Treatment",
-    img: "/images/FemaleHair.jpg",
-  },
-  {
-    title: "Male Pattern Hair Loss Treatment",
-    img: "/images/MaleHair.jpg",
-  },
-  {
-    title: "Hair Transplant Consultation",
-    img: "/images/PainlessHair.jpg",
-  },
-  {
-    title: "PRP & Advanced Hair Procedures",
-    img: "/images/HairPRP.jpeg",
-  },
-  {
-    title: "Hair Density Treatment",
-    img: "/images/service1.jpeg",
-  },
-  {
-    title: "Hair Loss Treatment",
-    img: "/images/service2.jpeg",
-  },
-  {
-    title: "Hair Thickness Treatment",
-    img: "/images/service3.jpeg",
-  },
-  {
-    title: "Acne, Pimple, Zap, Acne Scars Treatment",
-    img: "/images/service4.jpeg",
-  },
-  {
-    title: "Chemical Peeling",
-    img: "/images/service5.jpeg",
-  },
-  {
-    title: "Carbon Laser Facial",
-    img: "/images/service6.jpeg",
-  },
-  {
-    title: "Face Meso",
-    img: "/images/service7.jpeg",
-  },
-  {
-    title: "Face MN Glow Treatment",
-    img: "/images/service8.jpeg",
-  },
-  {
-    title: "Hydrafacial (with Jelly Mask & Sheet Mask)",
-    img: "/images/service9.jpeg",
-  },
-  {
-    title: "IV Glow Drip Treatment",
-    img: "/images/service10.jpeg",
-  },
-  {
-    title: "Korean Glass Glow Facial",
-    img: "/images/service11.jpeg",
-  },
-  {
-    title: "Medifacial – Skin Detan, Skin Lightening, Whitening, Brightening, Aqua gold Facial",
-    img: "/images/service12.jpeg",
-  },
-  {
-    title: "Laser Hair Reduction – Full body & Body Part",
-    img: "/images/service13.jpeg",
-  },
-  {
-    title: "Skin Rejuvenation / Full Body Polishing via laser machine",
-    img: "/images/service14.jpeg",
-  },
-  {
-    title: "Photo Facial",
-    img: "/images/service15.jpeg",
-  },
-  {
-    title: "Pigmentation, Sun damage, Freckle, Dark Spots, Melasma Treatment",
-    img: "/images/service16.jpeg",
-  },
-  {
-    title: "Skin Glow Facial Treatment",
-    img: "/images/service17.jpeg",
-  },
-  {
-    title: "BB Glow Treatment & Oxygen Facial",
-    img: "/images/service18.jpeg",
-  },
-  {
-    title: "Tattoo Removal Treatment",
-    img: "/images/service19.jpeg",
-  },
-  {
-    title: "Cupping Therapy",
-    img: "/images/service20.jpeg",
-  },
-  {
-    title: "Mole, Wart Removal",
-    img: "/images/service21.jpeg",
-  },
-  {
-    title: "PMU makeup, PMU eye brow",
-    img: "/images/service22.jpeg",
-  },
-  {
-    title: "Fillers",
-    img: "/images/service23.jpeg",
-  },
-  {
-    title: "Stretch Marks Removal Treatment",
-    img: "/images/service24.png",
-  },
-  {
-    title: "Thread, Face lift",
-    img: "/images/service25.jpeg",
-  },
-  {
-    title: "Anti Ageing treatment, Face wrinkles, sagging eyelid eyebrows",
-    img: "/images/service26.jpeg",
-  },
-  {
-    title: "Lip Lightening Treatment",
-    img: "/images/service27.jpeg",
-  },
-  {
-    title: "HIFU Treatment",
-    img: "/images/service28.jpeg",
-  },
-  {
-    title: "Wellness Services, Slimming, Diet, Body Contouring",
-    img: "/images/service29.jpeg",
-  },
-  {
-    title: "Under Eye Dark Circles Treatment",
-    img: "/images/service30.jpeg",
-  },
+  { title: "Hair Thinning & Anti Dandruff Treatment", img: "/images/Hair.jpeg", tag: "Hair" },
+  { title: "Hair Fast Treatment & Scalp Therapy", img: "/images/Hairfast.png", tag: "Hair" },
+  { title: "Advanced Hair Regrowth Treatment", img: "/images/Hairgrowth.jpg", tag: "Hair" },
+  { title: "Alopecia Areata Treatment", img: "/images/Areata.jpg", tag: "Hair" },
+  { title: "Female Pattern Hair Loss Treatment", img: "/images/FemaleHair.jpg", tag: "Hair" },
+  { title: "Male Pattern Hair Loss Treatment", img: "/images/MaleHair.jpg", tag: "Hair" },
+  { title: "Hair Transplant Consultation", img: "/images/PainlessHair.jpg", tag: "Hair" },
+  { title: "PRP & Advanced Hair Procedures", img: "/images/HairPRP.jpeg", tag: "Hair" },
+  { title: "Acne, Pimple & Acne Scars Treatment", img: "/images/service4.jpeg", tag: "Skin" },
+  { title: "Chemical Peeling", img: "/images/service5.jpeg", tag: "Skin" },
+  { title: "Carbon Laser Facial", img: "/images/service6.jpeg", tag: "Skin" },
+  { title: "Hydrafacial with Jelly & Sheet Mask", img: "/images/service9.jpeg", tag: "Skin" },
+  { title: "Korean Glass Glow Facial", img: "/images/service11.jpeg", tag: "Skin" },
+  { title: "Laser Hair Reduction", img: "/images/service13.jpeg", tag: "Laser" },
+  { title: "Skin Rejuvenation via Laser", img: "/images/service14.jpeg", tag: "Laser" },
+  { title: "Pigmentation, Melasma & Dark Spot Care", img: "/images/service16.jpeg", tag: "Skin" },
+  { title: "Tattoo Removal Treatment", img: "/images/service19.jpeg", tag: "Laser" },
+  { title: "Mole & Wart Removal", img: "/images/service21.jpeg", tag: "Skin" },
+  { title: "Anti-Ageing & Wrinkle Care", img: "/images/service26.jpeg", tag: "Skin" },
+  { title: "Under Eye Dark Circles Treatment", img: "/images/service30.jpeg", tag: "Skin" },
 ];
 
-const OurServices = () => {
+const OurServices = ({ limit = 8, showHeader = true }) => {
+  const visible = typeof limit === "number" ? services.slice(0, limit) : services;
+
   return (
-    <section className="our-services">
+    <section className="our-services section-padding pt-0">
       <div className="container">
+        {showHeader && (
+          <div className="text-center">
+            <span className="section-badge">Treatments</span>
+            <h2 className="section-title">
+              Advanced Solutions for <span className="text-gradient">Hair & Skin</span>
+            </h2>
+            <p className="section-subtitle mx-auto" style={{ maxWidth: "680px" }}>
+              Proven dermatology protocols, aesthetic procedures, and personalized treatment
+              plans designed for real, visible results.
+            </p>
+          </div>
+        )}
 
-        <h2 className="services-title">Our services</h2>
-
-        <div className="row">
-          {services.map((item, index) => (
-            <div key={index} className="col-lg-3 col-md-6 mb-4">
-              <div className="service-card">
-                <img src={item.img} alt={item.title} />
-                <h5>{item.title}</h5>
-              </div>
-            </div>
+        <div className="row g-4 service-grid">
+          {visible.map((service, index) => (
+            <Motion.div
+              key={service.title}
+              className="col-sm-6 col-lg-3"
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: index * 0.04 }}
+            >
+              <article className="service-card">
+                <img src={service.img} alt={service.title} loading="lazy" />
+                <div className="service-card-body">
+                  <span className="service-pill">{service.tag}</span>
+                  <h5>{service.title}</h5>
+                </div>
+              </article>
+            </Motion.div>
           ))}
         </div>
 
+        {limit !== null && services.length > visible.length && (
+          <div className="text-center mt-4">
+            <Link to="/treatments" className="btn-brand-outline">
+              View Full Treatment Menu
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

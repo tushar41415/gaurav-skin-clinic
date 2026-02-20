@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion as Motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,243 +8,153 @@ const Contact = () => {
     message: "",
   });
 
-  // Submit handler: open WhatsApp with encoded message (frontend-only)
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
     const { name, phone, message } = formData;
-    const recipient = "918287818299"; // country code 91 + number 8287818299
-    const text = `Name: ${name}\nPhone: ${phone}\nMessage: ${message}`;
-    const url = `https://wa.me/${recipient}?text=${encodeURIComponent(text)}`;
+    const text = `Name: ${name}\nPhone: ${phone}\nConcern: ${message}`;
+    const whatsappUrl = `https://wa.me/918287118299?text=${encodeURIComponent(text)}`;
 
-    const win = window.open(url, "_blank");
-    if (win) win.opener = null;
+    const popup = window.open(whatsappUrl, "_blank");
+    if (popup) popup.opener = null;
 
-    // Reset form after opening WhatsApp
     setFormData({ name: "", phone: "", message: "" });
   };
 
-  // ❌ React.ChangeEvent removed → JSX
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
     <section id="contact" className="section-padding">
       <div className="container">
-        <div className="text-center mb-5">
-          <span
-            className="badge mb-3 px-3 py-2"
-            style={{
-              background: "var(--soft-pink)",
-              color: "var(--rose-gold)",
-              fontFamily: "var(--font-heading)",
-            }}
-          >
-            Contact Us
-          </span>
-
-          <h2 className="section-title">Book Your Appointment</h2>
-
-          <p className="section-subtitle">
-            Ready to start your transformation? Get in touch with us today!
-          </p>
+        <div className="page-hero mb-4">
+          <div className="hero-card">
+            <span className="section-badge">Contact</span>
+            <h1 className="section-title">
+              Book your consultation in under one minute
+            </h1>
+            <p className="section-subtitle mb-0">
+              Share your concern and our team will connect with you on WhatsApp
+              for appointment scheduling.
+            </p>
+          </div>
         </div>
 
-        <div className="row g-5">
-          {/* Form */}
+        <div className="row g-4">
           <div className="col-lg-6">
-            <div
-              className="p-4 p-lg-5 rounded-4 h-100"
-              style={{ background: "var(--soft-pink)" }}
+            <Motion.div
+              className="contact-form-shell"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
             >
-              <h4
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  marginBottom: "30px",
-                }}
-              >
-                Send Us a Message
-              </h4>
-
+              <h4 className="mb-3">Send us your details</h4>
               <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label
-                    className="form-label"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Your Name
-                  </label>
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Full Name</label>
                   <input
                     type="text"
-                    className="form-control form-control-custom"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your full name"
+                    className="form-control form-control-custom"
+                    placeholder="Enter your name"
                     required
                   />
                 </div>
-
-                <div className="mb-4">
-                  <label
-                    className="form-label"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Phone Number
-                  </label>
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Phone Number</label>
                   <input
                     type="tel"
-                    className="form-control form-control-custom"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    className="form-control form-control-custom"
                     placeholder="Enter your phone number"
                     required
                   />
                 </div>
-
-                <div className="mb-4">
-                  <label
-                    className="form-label"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Message
-                  </label>
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Concern</label>
                   <textarea
-                    className="form-control form-control-custom"
+                    rows={4}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
-                    placeholder="Tell us about your concerns or questions"
+                    className="form-control form-control-custom"
+                    placeholder="Tell us about hair/skin issue"
                     required
-                  ></textarea>
+                  />
                 </div>
-
-                <button type="submit" className="btn btn-rose w-100 btn-lg">
-                  <i className="bi bi-send me-2"></i>
-                  Send Message
+                <button type="submit" className="btn-brand w-100">
+                  <i className="bi bi-whatsapp" /> Continue on WhatsApp
                 </button>
               </form>
-            </div>
+            </Motion.div>
           </div>
 
-          {/* Info */}
           <div className="col-lg-6">
-            <div className="h-100">
-              <h4
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  marginBottom: "30px",
-                }}
-              >
-                Contact Information
-              </h4>
+            <Motion.div
+              className="contact-card h-100"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+            >
+              <h4 className="mb-3">Clinic Information</h4>
 
-              <div className="d-flex gap-4 mb-4">
-                <div
-                  className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    background: "var(--soft-pink)",
-                  }}
-                >
-                  <i
-                    className="bi bi-geo-alt"
-                    style={{
-                      fontSize: "1.5rem",
-                      color: "var(--rose-gold)",
-                    }}
-                  ></i>
-                </div>
+              <div className="info-item">
+                <span className="info-dot">
+                  <i className="bi bi-geo-alt" />
+                </span>
                 <div>
-                  <h6 style={{ fontFamily: "var(--font-heading)" }}>
-                    Clinic Address
-                  </h6>
-                  <p style={{ color: "var(--gray-text)", marginBottom: 0 }}>
-                    A206 2nd floor Raj Hans plaza ahinsha Khand 1
-                    <br />
-                    Premier Location - Your Beauty Destination 201012
+                  <strong>Address</strong>
+                  <p className="mb-0 text-muted">
+                    A-206, 2nd floor Rajhans Plaza, Ahinsa Khand 1, Indirapuram
+                    Ghaziabad Opposite Aditya Mall 201012
                   </p>
                 </div>
               </div>
 
-              <div className="d-flex gap-4 mb-4">
-                <div
-                  className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    background: "var(--soft-pink)",
-                  }}
-                >
-                  <i
-                    className="bi bi-telephone"
-                    style={{
-                      fontSize: "1.5rem",
-                      color: "var(--rose-gold)",
-                    }}
-                  ></i>
-                </div>
+              <div className="info-item">
+                <span className="info-dot">
+                  <i className="bi bi-telephone" />
+                </span>
                 <div>
-                  <h6 style={{ fontFamily: "var(--font-heading)" }}>
-                    Phone Number
-                  </h6>
-                  <p style={{ color: "var(--gray-text)", marginBottom: 0 }}>
-                    +91 8287818299
-                  </p>
+                  <strong>Phone</strong>
+                  <p className="mb-0 text-muted">+91 8287118299</p>
                 </div>
               </div>
 
-              <div className="d-flex gap-4 mb-4">
-                <div
-                  className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    background: "var(--soft-pink)",
-                  }}
-                >
-                  <i
-                    className="bi bi-clock"
-                    style={{
-                      fontSize: "1.5rem",
-                      color: "var(--rose-gold)",
-                    }}
-                  ></i>
-                </div>
+              <div className="info-item mb-4">
+                <span className="info-dot">
+                  <i className="bi bi-clock" />
+                </span>
                 <div>
-                  <h6 style={{ fontFamily: "var(--font-heading)" }}>
-                    Working Hours
-                  </h6>
-                  <p style={{ color: "var(--gray-text)", marginBottom: 0 }}>
+                  <strong>Working Hours</strong>
+                  <p className="mb-0 text-muted">
                     Mon - Sat: 9:00 AM - 7:00 PM
-                    <br />
-                    Sunday: By Appointment Only
                   </p>
                 </div>
               </div>
 
-              {/* Google Map */}
               <div
-                className="rounded-4 overflow-hidden mt-4"
-                style={{ height: "200px", background: "var(--light-gray)" }}
+                className="rounded-4 overflow-hidden"
+                style={{ height: "220px" }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.8851095619!2d77.20659841508156!3d28.632732982420567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1625123456789!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.628685355066!2d77.35143048715821!3d28.640035300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb9f9edd96c5%3A0x1d2945b71e462be0!2sDr%20Derma%20Hair%20%26%20Skin%20Clinic!5e0!3m2!1sen!2sin!4v1771572837850!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Clinic Location"
+                  title="Clinic location map"
                 ></iframe>
               </div>
-            </div>
+            </Motion.div>
           </div>
         </div>
       </div>

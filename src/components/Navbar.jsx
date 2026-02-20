@@ -1,136 +1,82 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const links = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Treatments", path: "/treatments" },
+  { label: "Gallery", path: "/gallery" },
+  { label: "Why Us", path: "/whychooseus" },
+  { label: "Reviews", path: "/testimonials" },
+  { label: "Contact", path: "/contact" },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 28);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navigate = useNavigate();
-
-  // navigate to route for each section
-  const scrollToSection = (sectionId) => {
+  const handleNavigate = (path) => {
     setIsOpen(false);
-    if (sectionId === "home") return navigate("/");
-    return navigate(`/${sectionId}`);
+    navigate(path);
   };
 
   return (
-    <nav
-      className={`navbar navbar-expand-lg fixed-top ${
-        scrolled
-          ? "navbar-light bg-white shadow-lg"
-          : "navbar-dark bg-transparent"
-      }`}
-      style={{
-        transition: "all 0.3s ease",
-        backdropFilter: scrolled ? "none" : "blur(10px)",
-        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
-      }}
-    >
-      <div className="container">
-        <a
-          className="navbar-brand d-flex align-items-center"
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/");
-          }}
-        >
-          <img
-            src="./images/derma.png"
-            alt="Dr Derma Hair & Skin Care Clinic"
-            height="80"
-            className="me-2"
-          />
-        </a>
+    <header className={`site-navbar ${scrolled ? "scrolled" : ""}`}>
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-frame">
+        <div className="container-fluid px-0">
+          <button
+            className="navbar-brand border-0 bg-transparent p-0"
+            onClick={() => handleNavigate("/")}
+            aria-label="Go to homepage"
+          >
+            <img
+              src="/images/newLogo.png"
+              alt="Dr Derma Hair and Skin Care Clinic"
+              className="brand-logo"
+            />
+          </button>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
 
-        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("home")}
-              >
-                Home
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("about")}
-              >
-                About
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("treatments")}
-              >
-                Treatments
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("gallery")}
-              >
-                Gallery
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("whychooseus")}
-              >
-                Why Choose Us
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("testimonials")}
-              >
-                Testimonials
-              </button>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link btn btn-link"
-                onClick={() => scrollToSection("contact")}
-              >
-                Contact
-              </button>
-            </li>
-            <li className="nav-item ms-lg-2">
-              <button
-                className={`btn ${scrolled ? "btn-primary" : "btn-light"} btn-sm`}
-                onClick={() => scrollToSection("contact")}
-              >
-                Book Appointment
-              </button>
-            </li>
-          </ul>
+          <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
+            <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+              {links.map((link) => (
+                <li className="nav-item" key={link.path}>
+                  <button
+                    className={`nav-link-btn ${location.pathname === link.path ? "active" : ""}`}
+                    onClick={() => handleNavigate(link.path)}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+              <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
+                <button className="btn-brand" onClick={() => handleNavigate("/contact")}>
+                  Reserve Session
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

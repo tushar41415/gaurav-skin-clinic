@@ -1,20 +1,18 @@
-
-import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Treatments from './components/Treatments'
-import WhyChooseUs from './components/WhyChooseUs'
-import Gallery from './components/Gallery'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import { Routes, Route } from 'react-router-dom'
-import CTASection from './components/CTASection'
-import StatsBar from './components/StatsBar'
-import OurServices from './components/OurServices'
-import OurResults from './components/OurResults'
-import WhatsAppButton from './components/WhatsAppButton'
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Treatments from "./components/Treatments";
+import WhyChooseUs from "./components/WhyChooseUs";
+import Gallery from "./components/Gallery";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import CTASection from "./components/CTASection";
+import StatsBar from "./components/StatsBar";
+import OurServices from "./components/OurServices";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -29,7 +27,8 @@ function App() {
               <Hero />
               <StatsBar />
               <OurServices />
-              <OurResults />
+              <WhyChooseUs />
+              <Testimonials />
               <CTASection />
             </>
           }
@@ -45,7 +44,7 @@ function App() {
       <Footer />
       <WhatsAppButton />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

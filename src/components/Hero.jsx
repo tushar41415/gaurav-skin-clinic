@@ -1,251 +1,135 @@
-import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0 },
+};
 
 const Hero = () => {
-  const [animate, setAnimate] = useState(false);
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
 
-  useEffect(() => {
-    const t = setTimeout(() => setAnimate(true), 80);
-    return () => clearTimeout(t);
-  }, []);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.5,
+  });
 
-  // Count component: animates from 0 to `target` when visible
-  const Count = ({ target, duration = 1400, suffix = "" }) => {
-    const [value, setValue] = useState(0);
-    const elRef = useRef(null);
-    const startedRef = useRef(false);
-
-    useEffect(() => {
-      const el = elRef.current;
-      if (!el) return;
-
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !startedRef.current) {
-              startedRef.current = true;
-              const start = performance.now();
-              const from = 0;
-              const to = Number(target) || 0;
-
-              const step = (now) => {
-                const t = Math.min((now - start) / duration, 1);
-                const current = Math.floor(from + (to - from) * t);
-                setValue(current);
-                if (t < 1) requestAnimationFrame(step);
-              };
-
-              requestAnimationFrame(step);
-              io.disconnect();
-            }
-          });
-        },
-        { threshold: 0.4 },
-      );
-
-      io.observe(el);
-      return () => io.disconnect();
-    }, [target, duration]);
-
-    const format = (n) => {
-      if (!n) return `0${suffix}`;
-      if (target >= 1000) {
-        const k = Math.floor(n / 1000);
-        return `${k}K${suffix}`;
-      }
-      return `${n}${suffix}`;
-    };
-
-    return (
-      <span ref={elRef} aria-hidden>
-        {format(value)}
-      </span>
-    );
-  };
-
-  // ✅ SEO + UI balanced text
-  const chunks = [
-    { text: "Dr Derma", cls: "pop" },
-    { text: "Hair & Skin Care Clinic", cls: "smooth rose" },
-    { text: "Your Premier Beauty Destination", cls: "smooth" },
-  ];
+  const contentY = useTransform(smoothProgress, [0, 1], [0, 165]);
+  const contentOpacity = useTransform(smoothProgress, [0, 0.7, 1], [1, 0.92, 0.58]);
+  const visualY = useTransform(smoothProgress, [0, 1], [0, 210]);
+  const videoScale = useTransform(smoothProgress, [0, 1], [1, 1.15]);
+  const videoOverlayOpacity = useTransform(smoothProgress, [0, 1], [0.45, 0.7]);
 
   return (
-    <section id="home" className="hero-section">
-      <div className="container">
-        <div className="row align-items-center">
+    <section id="home" className="hero-section" ref={heroRef}>
+      <div className="hero-video-bg" aria-hidden="true">
+        <Motion.video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/Reception1.png"
+          style={{ scale: videoScale }}
+        >
+          <source
+            src="https://www.pexels.com/download/video/3997168/"
+            type="video/mp4"
+          />
+          <source
+            src="https://www.pexels.com/download/video/3996891/"
+            type="video/mp4"
+          />
+          <source
+            src="https://www.pexels.com/download/video/3741664/"
+            type="video/mp4"
+          />
+        </Motion.video>
+        <Motion.span className="hero-video-vignette" style={{ opacity: videoOverlayOpacity }} />
+        <span className="hero-film-grain" />
+      </div>
+
+      <span className="hero-glow one" />
+      <span className="hero-glow two" />
+
+      <div className="container position-relative">
+        <div className="row align-items-center g-4 g-lg-5">
           <div className="col-lg-7">
-            <motion.div
-              className="animate-fade-in-up"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+            <Motion.div
+              className="hero-content-wrap"
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              transition={{ duration: 0.65 }}
+              style={{ y: contentY, opacity: contentOpacity }}
             >
-              {/* Optional badge */}
-              <motion.span
-                className="badge mb-3 px-4 py-2"
-                style={{
-                  background: "rgba(255,255,255,0.2)",
-                  color: "white",
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "0.9rem",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+              <div className="hero-eyebrow">
+                <i className="bi bi-patch-check-fill" /> Signature Luxury Hair & Skin Care
+              </div>
+
+              <h1 className="hero-title">
+                Experience <span className="text-gradient">Luxury Dermatology</span> Crafted for Confident Results
+              </h1>
+
+              <p className="hero-copy">
+                Dr Derma Clinic delivers premium hair restoration and skin rejuvenation
+                protocols with bespoke consultation, advanced technology, and elegant patient care.
+              </p>
+
+              <div className="hero-cta">
+                <Link to="/contact" className="btn-brand">
+                  <i className="bi bi-calendar2-check" /> Book Consultation
+                </Link>
+                <a href="tel:+918287118299" className="btn-brand-outline">
+                  <i className="bi bi-telephone-fill" /> Call +91 8287118299
+                </a>
+              </div>
+
+              <div className="hero-points">
+                <div className="hero-point">
+                  <strong>Expert Team</strong>
+                  <span>Premium clinical care</span>
+                </div>
+                <div className="hero-point">
+                  <strong>10K+</strong>
+                  <span>Satisfied transformations</span>
+                </div>
+                <div className="hero-point">
+                  <strong>FDA Tools</strong>
+                  <span>Global standard technology</span>
+                </div>
+              </div>
+            </Motion.div>
+          </div>
+
+          <div className="col-lg-5">
+            <Motion.div
+              className="hero-visual"
+              initial={{ opacity: 0, y: 34 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.16 }}
+              style={{ y: visualY }}
+            >
+              <div className="hero-image-main">
+                <img src="/images/Reception1.png" alt="Dr Derma clinic reception area" />
+              </div>
+
+              <Motion.div
+                className="hero-floating-card glass-card"
+                initial={{ opacity: 0, x: -24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.55, delay: 0.45 }}
               >
-                ✨ Welcome to Premium Care
-              </motion.span>
-
-              {/* 🔥 MAIN SEO H1 (ONLY ONE ON PAGE) */}
-              <motion.h1
-                className="display-4 fw-bold mb-4 text-white"
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  lineHeight: 1.2,
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                {chunks.map((c, i) => (
-                  <motion.span
-                    key={i}
-                    className={`hero-word ${c.cls} ${animate ? "in" : ""}`}
-                    style={{
-                      animationDelay: `${i * 0.22}s`,
-                      marginRight: i < chunks.length - 1 ? "0.5rem" : 0,
-                      display: "inline-block",
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + i * 0.2, duration: 0.6 }}
-                  >
-                    {c.text}
-                  </motion.span>
-                ))}
-              </motion.h1>
-
-              {/* ✅ Supporting SEO Paragraph */}
-              <motion.p
-                style={{
-                  color: "rgba(255,255,255,0.9)",
-                  maxWidth: "520px",
-                  marginBottom: "2rem",
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-              >
-                Dr Derma Hair & Skin Care Clinic is your premier destination for
-                advanced hair loss treatments, skin care solutions, and
-                dermatology services under expert care.
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <motion.div
-                className="d-flex flex-wrap gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4, duration: 0.6 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to="/contact"
-                    className="btn btn-light btn-lg shadow-lg"
-                  >
-                    <i className="bi bi-calendar-check me-2"></i>
-                    Book Appointment
-                  </Link>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <a
-                    href="tel:+918287818299"
-                    className="btn btn-outline-light btn-lg"
-                    style={{ borderColor: "rgba(255,255,255,0.5)" }}
-                  >
-                    <i className="bi bi-telephone me-2"></i>
-                    Call Now
-                  </a>
-                </motion.div>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div
-                className="d-flex align-items-center gap-4 mt-5"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.6, duration: 0.8 }}
-              >
-                <motion.div
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.8, duration: 0.6 }}
-                >
-                  <h3 className="mb-0 text-white">
-                    <Count target={16} duration={1100} suffix="+" />
-                  </h3>
-                  <small style={{ color: "rgba(255,255,255,0.8)" }}>
-                    Years Experience
-                  </small>
-                </motion.div>
-
-                <div
-                  style={{
-                    width: "1px",
-                    height: "40px",
-                    background: "rgba(255,255,255,0.3)",
-                  }}
-                />
-
-                <motion.div
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2.0, duration: 0.6 }}
-                >
-                  <h3 className="mb-0 text-white">
-                    <Count target={10000} duration={1500} suffix="+" />
-                  </h3>
-                  <small style={{ color: "rgba(255,255,255,0.8)" }}>
-                    Happy Clients
-                  </small>
-                </motion.div>
-
-                <div
-                  style={{
-                    width: "1px",
-                    height: "40px",
-                    background: "rgba(255,255,255,0.3)",
-                  }}
-                />
-
-                <motion.div
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2.2, duration: 0.6 }}
-                >
-                  <h3 className="mb-0 text-white">
-                    <Count target={20} duration={1100} suffix="+" />
-                  </h3>
-                  <small style={{ color: "rgba(255,255,255,0.8)" }}>
-                    Treatments
-                  </small>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                <h6 className="mb-1">Instant WhatsApp Support</h6>
+                <p>Get quick treatment guidance and appointment slots.</p>
+              </Motion.div>
+            </Motion.div>
           </div>
         </div>
       </div>

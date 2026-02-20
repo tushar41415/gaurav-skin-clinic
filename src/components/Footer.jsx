@@ -1,209 +1,94 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
     { to: "/", label: "Home" },
-    { to: "/about", label: "About Us" },
+    { to: "/about", label: "About" },
     { to: "/treatments", label: "Treatments" },
     { to: "/gallery", label: "Gallery" },
     { to: "/testimonials", label: "Testimonials" },
     { to: "/contact", label: "Contact" },
   ];
 
-  const treatments = [
-    "Hair Fall Treatment",
+  const topServices = [
+    "Hair Fall Control",
     "PRP Therapy",
-    "Hair Regrowth",
-    "Acne Treatment",
-    "Skin Whitening",
-    "Anti-Aging",
+    "Acne & Scar Care",
+    "Laser Hair Reduction",
+    "Anti-Ageing Care",
   ];
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="row g-4">
-          {/* Brand Info */}
           <div className="col-lg-4">
-            <div className="d-flex align-items-center mb-3">
-              <img
-                src="/derma.png"
-                alt="Gaurav Clinic"
-                height="80"
-                className="me-2"
-              />
-            </div>
-
-            <p
-              style={{
-                color: "rgba(255,255,255,0.7)",
-                marginBottom: "20px",
-              }}
-            >
-              19 YEARS OF CLINICAL LEGACY CERTIFIED BY THE AMERICAN
-              ACCREDITATION ASSOCIATION 100% GROWTH PROMISE OR FREE CORRECTIONS
+            <img src="/images/newLogo.png" alt="Dr Derma" style={{ height: "74px", width: "auto" }} />
+            <p className="mt-3 mb-3" style={{ maxWidth: "340px" }}>
+              Premium skin and hair treatments with modern technology, personalized diagnosis,
+              and result-driven care.
             </p>
-            <div className="d-flex align-items-center gap-4 mb-4">
-              <div className="text-center">
-                <h3 className="mb-0 text-rose-gradient">16+</h3>
-                <small style={{ color: "var(--gray-text)" }}>
-                  Years Experience
-                </small>
-              </div>
-
-              <div
-                style={{
-                  width: "1px",
-                  height: "40px",
-                  background: "var(--primary-light)",
-                }}
-              ></div>
-
-              <div className="text-center">
-                <h3 className="mb-0 text-rose-gradient">10K+</h3>
-                <small style={{ color: "var(--gray-text)" }}>Happy Clients </small>
-              </div>
-
-              <div
-                style={{
-                  width: "1px",
-                  height: "40px",
-                  background: "var(--primary-light)",
-                }}
-              ></div>
-
-              <div className="text-center">
-                <h3 className="mb-0 text-rose-gradient">2</h3>
-                <small style={{ color: "var(--gray-text)" }}>Countries</small>
-              </div>
-            </div>
-
             <div className="social-icons">
               <a href="#" aria-label="Facebook">
-                <i className="bi bi-facebook"></i>
+                <i className="bi bi-facebook" />
               </a>
               <a href="#" aria-label="Instagram">
-                <i className="bi bi-instagram"></i>
+                <i className="bi bi-instagram" />
               </a>
               <a href="#" aria-label="YouTube">
-                <i className="bi bi-youtube"></i>
+                <i className="bi bi-youtube" />
               </a>
-              <a href="#" aria-label="WhatsApp">
-                <i className="bi bi-whatsapp"></i>
+              <a href="https://wa.me/918287118299" aria-label="WhatsApp">
+                <i className="bi bi-whatsapp" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-lg-2 col-md-4">
+          <div className="col-md-4 col-lg-2">
             <h5>Quick Links</h5>
-            <ul className="list-unstyled">
-              {quickLinks.map((link, index) => (
-                <li className="mb-2" key={index}>
-                  <Link
-                    to={link.to}
-                    className="text-white text-decoration-none"
-                  >
-                    <i
-                      className="bi bi-chevron-right me-1"
-                      style={{ fontSize: "0.8rem" }}
-                    ></i>
-                    {link.label}
-                  </Link>
+            <ul className="list-unstyled d-grid gap-2 mb-0">
+              {quickLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to}>{link.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Treatments */}
-          <div className="col-lg-3 col-md-4">
-            <h5>Our Treatments</h5>
-            <ul className="list-unstyled">
-              {treatments.map((treatment, index) => (
-                <li className="mb-2" key={index}>
-                  <Link
-                    to="/treatments"
-                    className="text-white text-decoration-none"
-                  >
-                    <i
-                      className="bi bi-chevron-right me-1"
-                      style={{ fontSize: "0.8rem" }}
-                    ></i>
-                    {treatment}
-                  </Link>
+          <div className="col-md-4 col-lg-3">
+            <h5>Popular Services</h5>
+            <ul className="list-unstyled d-grid gap-2 mb-0">
+              {topServices.map((service) => (
+                <li key={service}>
+                  <Link to="/treatments">{service}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="col-lg-3 col-md-4">
-            <h5>Contact Info</h5>
-            <ul className="list-unstyled">
-              <li className="mb-3 d-flex align-items-start gap-2">
-                <i
-                  className="bi bi-geo-alt"
-                  style={{ color: "var(--primary-light)" }}
-                ></i>
-                <span style={{ color: "rgba(255,255,255,0.7)" }}>
-                  A206 2nd floor Raj Hans plaza ahinsha Khand 1
-                  <br />
-                  Premier Location - Your Beauty Destination 201012
-                </span>
-              </li>
-
-              <li className="mb-3 d-flex align-items-center gap-2">
-                <i
-                  className="bi bi-telephone"
-                  style={{ color: "var(--rose-gold-light)" }}
-                ></i>
-                <a href="tel:+919876543210">+91 8287818299</a>
-              </li>
-
-              <li className="mb-3 d-flex align-items-center gap-2">
-                <i
-                  className="bi bi-envelope"
-                  style={{ color: "var(--rose-gold-light)" }}
-                ></i>
-                <a href="mailto:info@drdermaclinic.com">
-                  info@drdermaclinic.com
-                </a>
-              </li>
-            </ul>
+          <div className="col-md-4 col-lg-3">
+            <h5>Contact</h5>
+            <div className="d-grid gap-2">
+              <a href="tel:+918287118299">
+                <i className="bi bi-telephone me-2" />+91 8287118299
+              </a>
+              <a href="mailto:drderma.in@gmail.com">
+                <i className="bi bi-envelope me-2" />drderma.in@gmail.com
+              </a>
+              <span>
+                <i className="bi bi-geo-alt me-2" />A-206, 2nd Floor, Rajhans Plaza,
+                Ahinsa Khand 1, Indirapuram, Ghaziabad
+              </span>
+            </div>
           </div>
         </div>
 
-        <hr
-          style={{
-            borderColor: "rgba(255,255,255,0.1)",
-            margin: "40px 0 20px",
-          }}
-        />
-
-        <div className="row align-items-center">
-          <div className="col-md-6 text-center text-md-start">
-            <p
-              style={{
-                color: "rgba(255,255,255,0.5)",
-                marginBottom: 0,
-              }}
-            >
-              © 2026 Gaurav Sharma Numberdar Clinic. All Rights Reserved.
-            </p>
-          </div>
-
-          <div className="col-md-6 text-center text-md-end mt-3 mt-md-0">
-            <a
-              href="#"
-              className="me-3"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              Privacy Policy
-            </a>
-            <a href="#" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Terms of Service
-            </a>
+        <hr style={{ borderColor: "rgba(255,255,255,0.14)", margin: "2rem 0 1rem" }} />
+        <div className="d-flex flex-wrap justify-content-between gap-2" style={{ fontSize: "0.92rem" }}>
+          <span>© 2026 Dr Derma Hair & Skin Care Clinic. All rights reserved.</span>
+          <div className="d-flex gap-3">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
       </div>
